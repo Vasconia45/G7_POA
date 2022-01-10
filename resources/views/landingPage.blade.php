@@ -34,12 +34,14 @@
                     </div>
                     <div class="form-group">
                         <div class="form-floating">
-                            <input type="email" id="email" class="form-control icon rounded mt-2" value placeholder=" Email">
+                            <input type="email" id="email" class="form-control icon rounded mt-2" value
+                                placeholder=" Email">
                             <label for="email"><i class="bi bi-envelope-fill"></i>Email</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" id="passwd" class="form-control icon2 rounded mt-2" placeholder="Password">
-                            <label for="passwd"><i class="bi bi-lock-fill"></i>Password</label> 
+                            <input type="password" id="passwd" class="form-control icon2 rounded mt-2"
+                                placeholder="Password">
+                            <label for="passwd"><i class="bi bi-lock-fill"></i>Password</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,80 +49,95 @@
                     </div>
                 </form>
                 <!--Reset password-->
-                <p class="text-center small"><a href="#" data-bs-toggle="modal" data-bs-target="#ModalResetPassword">Forgot Password?</a></p>
-                    <div class="modal fade" id="ModalResetPassword" tabindex="-1" aria-labelledby="ModalResetPasswordLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Enter your email</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form role="form" id="ModalReset" action="{{ route('resetMail')}}" method="POST">
-                                    {{ csrf_field() }}
-                                        <div class="form-group">
-                                            <div class="form-floating">
-                                                <p>
-                                                    Enter your email, and we will send you a link to recover the access to your account.</p>
-                                            </div>
-                                            <div class="form-floating">
-                                                <input type="email" id="EmailReset" name="email" class="form-control icon rounded  mt-2" placeholder="Email">
-                                                <label for="EmailReset"><i class="bi bi-envelope-fill"></i>Email</label>
-                                            </div>
-                                            <div class="form-floating">
-                                                <button type="submit" class="btn btn-default btn-block mt-4" id="sendButton">Send</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <p class="text-center small">Not Registered? <a href="#" data-bs-toggle="modal" data-bs-target="#ModalRegister">Create an Account</a></p>
-
-
-
-                <!--Register modal-->
-                <div class="modal fade" id="ModalRegister" tabindex="-1" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
+                <p class="text-center small"><a href="#" data-bs-toggle="modal"
+                        data-bs-target="#ModalResetPassword">Forgot Password?</a></p>
+                <div class="modal fade" id="ModalResetPassword" tabindex="-1" aria-labelledby="ModalResetPasswordLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="ModalRegisterLabel">Register</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title" id="exampleModalLabel">Forgotten Password?</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form  role="form" id="newModalForm">
+                                <form role="form" id="ModalReset" action="{{ route('resetMail')}}" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group">
-                                        <div class="form-floating text-center">
-                                            <img src="/img/LogoNameNoBackground.png" class="w-50">
+                                        <div class="form-floating">
+                                            <p>
+                                                Enter your email, and we will send you a link to recover the access
+                                                to your account.</p>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="username" id="UsernameRegister" class="form-control icon2 rounded mt-2" placeholder=" Username">
-                                            <label for="UsernameRegister"><i class="bi bi-person-circle"></i>Username</label>
+                                            <input type="email" id="EmailReset" name="email"
+                                                class="form-control icon rounded  mt-2" placeholder="Email">
+                                            <label for="EmailReset"><i class="bi bi-envelope-fill"></i>Email</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="password" id="Passwd1Register" class="form-control icon2 rounded  mt-2" placeholder=" Password">
-                                            <label for="Passwd1Register"><i class="bi bi-lock-fill"></i>Password</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <input type="password" id="Passwd2Register" class="form-control icon2 rounded  mt-2" placeholder=" Password">
-                                            <label for="Passwd2Register"><i class="bi bi-lock-fill"></i>Confirm Password</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <input type="email" id="EmailRegister" class="form-control icon rounded  mt-2" value placeholder=" Email">
-                                            <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>Email</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <input type="date" id="BirthDateRegister" class="form-control icon rounded mt-2" value placeholder="BirthDate">
-                                            <label for="BirthDateRegister">Birth Date</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <button type="submit" class="btn btn-default btn-block mt-4">Register</button>
+                                            <button type="submit" class="btn btn-default btn-block mt-4"
+                                                id="sendButton">Send</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center small">Not Registered? <a href="#" data-bs-toggle="modal"
+                    data-bs-target="#ModalRegister">Create an Account</a></p>
+
+
+
+            <!--Register modal-->
+            <div class="modal fade" id="ModalRegister" tabindex="-1" aria-labelledby="ModalRegisterLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalRegisterLabel">Register</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" id="newModalForm">
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <div class="form-floating text-center">
+                                        <img src="/img/LogoNameNoBackground.png" class="w-50">
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="username" id="UsernameRegister"
+                                            class="form-control icon2 rounded mt-2" placeholder=" Username">
+                                        <label for="UsernameRegister"><i
+                                                class="bi bi-person-circle"></i>Username</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="password" id="Passwd1Register"
+                                            class="form-control icon2 rounded  mt-2" placeholder=" Password">
+                                        <label for="Passwd1Register"><i class="bi bi-lock-fill"></i>Password</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="password" id="Passwd2Register"
+                                            class="form-control icon2 rounded  mt-2" placeholder=" Password">
+                                        <label for="Passwd2Register"><i class="bi bi-lock-fill"></i>Confirm
+                                            Password</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="email" id="EmailRegister" class="form-control icon rounded  mt-2"
+                                            value placeholder=" Email">
+                                        <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>Email</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="date" id="BirthDateRegister" class="form-control icon rounded mt-2"
+                                            value placeholder="BirthDate">
+                                        <label for="BirthDateRegister">Birth Date</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <button type="submit" class="btn btn-default btn-block mt-4">Register</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
