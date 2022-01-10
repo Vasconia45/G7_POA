@@ -9,6 +9,6 @@ function inicio(){
 function envio(){
     let email = $("#EmailReset").val();
     $.post("{{ route('resetMail')}}", {email: email},function(data) {
-        alert(data);
+        
     });
 }

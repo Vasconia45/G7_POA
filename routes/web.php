@@ -21,4 +21,4 @@ Route::get('/', function () {
 
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
-Route::get('/register', [LandingController::class, 'insert'])->name('register');
+Route::post('/register', [LandingController::class, 'insert'])->name('register');
