@@ -31,6 +31,6 @@ return [
     'date' =>'Fecha de nacimiento',
     'register' =>'Registro',
     'registrarse' =>'Registrarse',
-    'contact' => 'Correo de contacto: youshar3@support.com'
+    'contact' => 'Correo de contacto: youshar3sup@gmail.com'
 
 ];

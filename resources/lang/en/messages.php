@@ -32,7 +32,7 @@ return [
     'date' =>'Birth date',
     'register' =>'Register',
     'registrarse' =>'Register',
-    'contact' => 'Contact mail: youshar3@support.com'
+    'contact' => 'Contact mail: youshar3sup@gmail.com'
 
 ];
 
