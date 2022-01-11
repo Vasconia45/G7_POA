@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingController;
 use App\Http\Controllers\ResetEmail;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +21,5 @@ Route::get('/', function () {
 
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
-Route::post('/register', [LandingController::class, 'insert'])->name('register');
+Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');
+

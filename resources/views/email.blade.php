@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <link href="css/resetEmail.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('/css/resetEmail.css') }}">
 </head>
-    <p>This is a G7_POA test</p>
-    <img src="/img/LogoNameNoBackground.png" style="width="30px">
+    <p id="texto">This is a G7_POA test</p>
+    <img src="/img/LogoNameNoBackground.png">
 
 
 </html>

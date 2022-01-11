@@ -12,71 +12,129 @@
     <!--CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="css/estiloLandingPage.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/css/estiloLandingPage.css') }}">
     <!--JS-->
     <script src="jquery-3.6.0.js"></script>
-    <script src="js/reset.js"></script>
+    <script src="{{ asset('js/reset.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
+    <script src="{{ asset('js/register.js') }}"></script>
+
 </head>
 
 <body>
-    <div class="row text-center p-2">
-        <h1>Welcome to YouShar3</h1>
+    <div class="row p-2">
+        <div class="col-1">
+            @if (config('locale.status') && count(config('locale.languages')) > 1)
+            <div class="mx-4">
+                @foreach (array_keys(config('locale.languages')) as $lang)
+                @if ($lang != App::getLocale())
+                <a href="{!! route('lang.swap', $lang) !!}">
+                    {!! $lang !!}
+                </a>
+                @endif
+                @endforeach
+            </div>
+            @endif
+        </div>
+        <div class="col-11 d-flex justify-content-center">
+            <h1>{!! trans('messages.welcome') !!}</h1>
+        </div>
     </div>
     <div class="row mx-auto">
         <div class="col-lg-8 col-md-8 col-sm-12 mx-auto mt-5">
             <!--Login part-->
             <div class="login-form">
-                <form action="" method="post">
+                <form action="" method="$_POST" id="LoginModal">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <img src="/img/LogoNameNoBackground.png" class="w-50">
+                            <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-floating">
-                            <input type="email" id="email" class="form-control icon rounded mt-2" value
-                                placeholder=" Email">
-                            <label for="email"><i class="bi bi-envelope-fill"></i>Email</label>
+                            <input type="text" id="email" class="form-control icon rounded mt-2" value placeholder=" Email">
+                            <label for="email"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" id="passwd" class="form-control icon2 rounded mt-2"
-                                placeholder="Password">
-                            <label for="passwd"><i class="bi bi-lock-fill"></i>Password</label>
+                            <input type="password" id="passwd" class="form-control icon2 rounded mt-2" placeholder="Password">
+                            <label for="passwd"><i class="bi bi-lock-fill"></i>{!! trans('messages.password') !!}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-default btn-block mt-2">Login</button>
+                        <button type="submit" class="btn btn-default btn-block mt-2">{!! trans('messages.login') !!}</button>
                     </div>
+                    <p class="text-center small"><a href="#" data-bs-toggle="modal" data-bs-target="#ModalResetPassword">{!! trans('messages.forgot') !!}</a></p>
                 </form>
                 <!--Reset password-->
-                <p class="text-center small"><a href="#" data-bs-toggle="modal"
-                        data-bs-target="#ModalResetPassword">Forgot Password?</a></p>
-                <div class="modal fade" id="ModalResetPassword" tabindex="-1" aria-labelledby="ModalResetPasswordLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="ModalResetPassword" tabindex="-1" aria-labelledby="ModalResetPasswordLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Forgotten Password?</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <h5 class="modal-title" id="exampleModalLabel">{!! trans('messages.enterMail') !!}</h5>
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form role="form" id="ModalReset" action="{{ route('resetMail')}}" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <div class="form-floating">
-                                            <p>
-                                                Enter your email, and we will send you a link to recover the access
-                                                to your account.</p>
+                                            <p>{!! trans('messages.reset') !!}</p>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="email" id="EmailReset" name="email"
-                                                class="form-control icon rounded  mt-2" placeholder="Email">
-                                            <label for="EmailReset"><i class="bi bi-envelope-fill"></i>Email</label>
+                                            <input type="text" id="EmailReset" name="email" class="form-control icon rounded  mt-2" placeholder="Email">
+                                            <label for="EmailReset"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
                                         </div>
                                         <div class="form-floating">
-                                            <button type="submit" class="btn btn-default btn-block mt-4"
-                                                id="sendButton">Send</button>
+                                            <button type="submit" class="btn btn-default btn-block mt-4" id="sendButton">{!! trans('messages.send') !!}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center small">{!! trans('messages.notRegister') !!}<a href="#" data-bs-toggle="modal" data-bs-target="#ModalRegister">{!! trans('messages.create') !!}</a></p>
+
+
+
+                <!--Register modal-->
+                <div class="modal fade" id="ModalRegister" tabindex="-1" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="ModalRegisterLabel">{!! trans('messages.register') !!}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form" id="RegisterModal">
+                                    {{ csrf_field() }}
+                                    <div class="form-group">
+                                        <div class="form-floating text-center">
+                                            <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="username" id="UsernameRegister" class="form-control icon2 rounded mt-2" placeholder=" Username">
+                                            <label for="UsernameRegister"><i class="bi bi-person-circle"></i>{!! trans('messages.username') !!}</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="password" id="Passwd1Register" class="form-control icon2 rounded  mt-2" placeholder=" Password">
+                                            <label for="Passwd1Register"><i class="bi bi-lock-fill"></i>{!! trans('messages.password') !!}</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="password" id="Passwd2Register" class="form-control icon2 rounded  mt-2" placeholder=" Password">
+                                            <label for="Passwd2Register"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm') !!}</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="text" id="EmailRegister" class="form-control icon rounded  mt-2" value placeholder=" Email">
+                                            <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="date" id="BirthDateRegister" class="form-control icon rounded mt-2" value placeholder="BirthDate">
+                                            <label for="BirthDateRegister">{!! trans('messages.date') !!}</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <button type="submit" class="btn btn-default btn-block mt-4">{!! trans('messages.registrarse') !!}</button>
                                         </div>
                                     </div>
                                 </form>
@@ -85,66 +143,23 @@
                     </div>
                 </div>
             </div>
-            <p class="text-center small">Not Registered? <a href="#" data-bs-toggle="modal"
-                    data-bs-target="#ModalRegister">Create an Account</a></p>
-
-
-
-            <!--Register modal-->
-            <div class="modal fade" id="ModalRegister" tabindex="-1" aria-labelledby="ModalRegisterLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ModalRegisterLabel">Register</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form role="form" id="newModalForm">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <div class="form-floating text-center">
-                                        <img src="/img/LogoNameNoBackground.png" class="w-50">
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="username" id="UsernameRegister"
-                                            class="form-control icon2 rounded mt-2" placeholder=" Username">
-                                        <label for="UsernameRegister"><i
-                                                class="bi bi-person-circle"></i>Username</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="password" id="Passwd1Register"
-                                            class="form-control icon2 rounded  mt-2" placeholder=" Password">
-                                        <label for="Passwd1Register"><i class="bi bi-lock-fill"></i>Password</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="password" id="Passwd2Register"
-                                            class="form-control icon2 rounded  mt-2" placeholder=" Password">
-                                        <label for="Passwd2Register"><i class="bi bi-lock-fill"></i>Confirm
-                                            Password</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="email" id="EmailRegister" class="form-control icon rounded  mt-2"
-                                            value placeholder=" Email">
-                                        <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>Email</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input type="date" id="BirthDateRegister" class="form-control icon rounded mt-2"
-                                            value placeholder="BirthDate">
-                                        <label for="BirthDateRegister">Birth Date</label>
-                                    </div>
-                                    <div class="form-floating">
-                                        <button type="submit" class="btn btn-default btn-block mt-4">Register</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
+    <footer>
+        <div class="row text-center">
+            <a href="https://twitter.com/?lang=ES"><i class="bi bi-twitter">Twitter</i></a>
+        </div>
+        <div class="row text-center">
+            <a href="https://www.facebook.com/"><i class="bi bi-facebook">Facebook</i></a>
+        </div>
+        <div class="row text-center">
+            <a href="https://www.reddit.com/"><i class="bi bi-reddit">Reddit</i></a>
+        </div>
+        <div class="row text-center">
+            <span><i class="bi bi-envelope-fill"></i>{!! trans('messages.contact') !!}</span>
+        </div>
+    </footer>
 </body>
 
 </html>

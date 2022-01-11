@@ -2,7 +2,7 @@
 
 documento.ready(function(){
 
-    $("#singup").submit(function(){
+    $("#RegisterModal").submit(function(){
         if($("#UsernameRegister").val().length < 1) {
             alert("Is neccessary to enter a user name");
             return false;
@@ -13,7 +13,7 @@ documento.ready(function(){
             
     });
 
-    $("#singup").submit(function(){
+    $("#RegisterModal").submit(function(){
             if($("#Passwd1Register").val().length < 1) {
                 alert("Is neccessary to enter a password");
                 return false;
@@ -27,7 +27,7 @@ documento.ready(function(){
     });
 
 
-    $("#singup").submit(function(){
+    $("#RegisterModal").submit(function(){
         if($("#Passwd2Register").val().length < 1) {
             alert("Is neccessary to confirm your password");
             return false;
@@ -39,7 +39,7 @@ documento.ready(function(){
     });
 
 
-    $("#singup").submit(function(){
+    $("#RegisterModal").submit(function(){
         if($("#EmailRegister").val().length < 1) {
         alert("Is obligatory to enter an email");
              return false;
@@ -50,7 +50,7 @@ documento.ready(function(){
          
      });
     
-    $("#singup").submit(function(){
+    $("#RegisterModal").submit(function(){
         if($("#BirthDateRegister").val().length < 1) {
             alert("Is neccessary to enter your birth date");
             return false;
