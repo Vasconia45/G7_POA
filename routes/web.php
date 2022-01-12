@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('landingPage');
 })->name('landingPage');
 
+Route::get('/onProcess', function(){ 
+    return view('onProcess');
+})->name('onProcess');
+
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
 Route::post('/register', [UserRegisterController::class, 'store'])->name('registerUser');

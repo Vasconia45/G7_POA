@@ -1,18 +1,27 @@
 let documento = $("document");
 
-documento.ready(function(){
-    $("#LoginModal").submit(function(){
-           if($("#email").val().length < 1) {
-           alert("Is necessary to enter an email");
-                return false;
-            }
-        });
-
-    $("#LoginModal").submit(function(){
-            if($("#passwd").val().length < 1) {
-                alert("Is neccessary to enter a password");
-                return false;
-            }     
+documento.ready(function () {
+    $("#LoginModal").submit(function () {
+        if ($("#passwd").val().length < 1) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You need to insert a password please.',
+            })
+            return false;
+        }
     });
+    $("#LoginModal").submit(function () {
+        if ($("#email").val().length < 1) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You need to insert an email address please.',
+            })
+            return false;
+        }
+    });
+
+
 
 })

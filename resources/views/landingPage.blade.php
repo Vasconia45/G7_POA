@@ -41,7 +41,7 @@
         <h1>{!! trans('messages.welcome') !!}</h1>
     </div>
     <div class="row mx-auto">
-        <div class="col-lg-8 col-md-8 col-sm-12 mx-auto mt-5">
+        <div class="col-lg-8 col-md-8 col-sm-12 mx-auto mt-2">
             <!--Login part-->
             <div class="login-form">
                 <form action="" method="$_POST" id="LoginModal">
@@ -78,7 +78,7 @@
                                 @foreach (array_keys(config('locale.languages')) as $lang)
                                 @if ($lang != App::getLocale())
                                 <button type="button" class="btn btn-default btn-block mt-4">
-                                    <a href="{!! route('lang.swap', $lang) !!}">
+                                    <a href="{!! route('lang.swap', $lang) !!}" id="language">
                                         {!! $lang !!}
                                     </a>
                                 </button>

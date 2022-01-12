@@ -16,6 +16,7 @@ class ResetEmail extends Controller
             $msj->subject($subject);
             $msj->to($for);
         });
-        return redirect()->back();
+        return redirect()->back()
+        ->with('success','We send you an email, please check it.');
     }
 }
