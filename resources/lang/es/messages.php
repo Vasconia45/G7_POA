@@ -24,13 +24,15 @@ return [
     'notRegister' => 'No estas registrado?',
     'create' => 'Crea una cuenta',
     'enterMail' => 'Introduce tu Correo',
-    'reset' => 'Recive un correo para resetear tu contraseña:',
+    'reset' => 'Recibe un correo para resetear tu contraseña:',
     'send' => 'Enviar',
     'username' =>'Nombre de usuario',
     'confirm' =>'Confirmar contraseña',
     'date' =>'Fecha de nacimiento',
     'register' =>'Registro',
     'registrarse' =>'Registrarse',
-    'contact' => 'Correo de contacto: youshar3sup@gmail.com'
+    'contact' => 'Correo de contacto: youshar3sup@gmail.com',
+    'exists' =>'Este usuario ya existe',
+    'success' =>'El usuario ha sido creado correctamente'
 
 ];

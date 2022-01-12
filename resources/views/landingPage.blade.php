@@ -115,7 +115,7 @@
                                         </div>
                                         <div class="form-floating">
                                             <button type="submit" class="btn btn-default btn-block mt-4"
-                                                id="sendButton">{!! trans('messages.send') !!}</button>
+                                                id="sendButton">@lang('messages.send')</button>
                                         </div>
                                     </div>
                                 </form>
@@ -198,7 +198,7 @@
             <a href="https://www.reddit.com/" target="_blank"><i class="bi bi-reddit">Reddit</i></a>
         </div>
         <div class="text-center">
-            <span><i class="bi bi-envelope-fill"></i>{!! trans('messages.contact') !!}</span>
+            <span><a href="#" class="text-dark"><i class="bi bi-envelope-fill"></i></a>{!! trans('messages.contact') !!}</span>
         </div>
     </footer>
 </body>

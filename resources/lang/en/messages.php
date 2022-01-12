@@ -32,7 +32,10 @@ return [
     'date' =>'Birth date',
     'register' =>'Register',
     'registrarse' =>'Register',
-    'contact' => 'Contact mail: youshar3sup@gmail.com'
+    'contact' => 'Contact mail: youshar3sup@gmail.com',
+    'exists' =>'This user already exists',
+    'success' =>'User has been created succesfully'
+    
 
 ];
 
