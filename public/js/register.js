@@ -23,7 +23,10 @@ documento.ready(function(){
             } else if($("#Passwd1Register").val().length > 16 ){
                 alert("The password can't have more than 16 characters");
                 return false;
-            }     
+            } else if( !/[^a-zA-Z0-9]/.test( $("#Passwd1Register").val() ) ) {
+                alert('You need at least one alphanumeric digit for your password');
+                return false;
+             }     
     });
 
 

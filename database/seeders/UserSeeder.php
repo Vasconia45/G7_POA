@@ -19,18 +19,10 @@ class UserSeeder extends Seeder
             [
                 "id" => "1",
                 "user_name" => "admin",
-                "email" => "pigaiteala20dw@ikzubirimanteo.com",
+                "email" => "youshar3sup@gmail.com",
                 "password" => Hash::make("root"),
                 "birth_date" => "2021-12-26",
                 "user_type" => "admin"
-            ],
-            [
-                "id" => "2",
-                "user_name" => "usuario1",
-                "email" => "pil.donosti34@gmail.com",
-                "password" => Hash::make("root"),
-                "birth_date" => "2001-10-10",
-                "user_type" => "user"
             ]
         ]);
     }

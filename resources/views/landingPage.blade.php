@@ -23,6 +23,20 @@
 </head>
 
 <body>
+    <div>
+        @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+        @endif
+    </div>
+    <div>
+        @if(Session::has('error'))
+        <div class="alert alert-danger">
+            {{ Session::get('error') }}
+        </div>
+        @endif
+    </div>
     <div class="row text-center p-2">
         <h1>{!! trans('messages.welcome') !!}</h1>
     </div>
@@ -110,7 +124,7 @@
                     </div>
                 </div>
                 <p class="text-center small">{!! trans('messages.notRegister') !!}<a href="#" data-bs-toggle="modal"
-                        data-bs-target="#ModalRegister">{!! trans('messages.create') !!}</a></p>
+                        data-bs-target="#ModalRegister"> {!! trans('messages.create') !!}</a></p>
 
 
 
@@ -125,20 +139,20 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form role="form" id="RegisterModal">
+                                <form role="form" id="RegisterModal" action="{{ route('registerUser')}}" method="POST">
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <div class="form-floating text-center">
                                             <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">
                                         </div>
                                         <div class="form-floating">
-                                            <input type="username" id="UsernameRegister"
+                                            <input type="username" id="UsernameRegister" name="user_name"
                                                 class="form-control icon2 rounded mt-2" placeholder=" Username">
                                             <label for="UsernameRegister"><i class="bi bi-person-circle"></i>{!!
                                                 trans('messages.username') !!}</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="password" id="Passwd1Register"
+                                            <input type="password" id="Passwd1Register" name="password"
                                                 class="form-control icon2 rounded  mt-2" placeholder=" Password">
                                             <label for="Passwd1Register"><i class="bi bi-lock-fill"></i>{!!
                                                 trans('messages.password') !!}</label>
@@ -150,13 +164,13 @@
                                                 trans('messages.confirm') !!}</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="text" id="EmailRegister"
+                                            <input type="text" id="EmailRegister" name="email"
                                                 class="form-control icon rounded  mt-2" value placeholder=" Email">
                                             <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>{!!
                                                 trans('messages.mail') !!}</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="date" id="BirthDateRegister"
+                                            <input type="date" id="BirthDateRegister" name="birth_date"
                                                 class="form-control icon rounded mt-2" value placeholder="BirthDate">
                                             <label for="BirthDateRegister">{!! trans('messages.date') !!}</label>
                                         </div>
@@ -174,7 +188,7 @@
         </div>
     </div>
     <footer>
-        <div class="text-center">
+        <div class="text-center sticky-bottom">
             <a href="https://twitter.com/?lang=ES" target="_blank"><i class="bi bi-twitter">Twitter</i></a>
         </div>
         <div class="text-center">

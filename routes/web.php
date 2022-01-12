@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetEmail;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\UserRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,11 @@ use App\Http\Controllers\LanguageController;
 
 Route::get('/', function () {
     return view('landingPage');
-});
+})->name('landingPage');
 
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
+
+Route::post('/register', [UserRegisterController::class, 'store'])->name('registerUser');
 
 Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');
 
