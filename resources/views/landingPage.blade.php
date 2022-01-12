@@ -44,7 +44,7 @@
         <div class="col-lg-8 col-md-8 col-sm-12 mx-auto mt-2">
             <!--Login part-->
             <div class="login-form">
-                <form action="" method="$_POST" id="LoginModal">
+                <form action="{{ route('onProcess')}}" method="GET" id="LoginModal">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
                             <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">

@@ -24,15 +24,21 @@ return [
     'notRegister' => 'No estas registrado?',
     'create' => 'Crea una cuenta',
     'enterMail' => 'Introduce tu Correo',
+    'nullMail' => 'Introduzca un correo electrónico por favor.',
+    'validMail' => 'Necesitas una dirección de correo electrónico válida.',
     'reset' => 'Recibe un correo para resetear tu contraseña:',
+    'sendMail' => 'Le hemos enviado un correo electrónico, podría comprobarlo por favor.',
     'send' => 'Enviar',
     'username' =>'Nombre de usuario',
     'confirm' =>'Confirmar contraseña',
     'date' =>'Fecha de nacimiento',
     'register' =>'Registro',
+    'registerMessage' => 'Se ha registrado correctamente.',
     'registrarse' =>'Registrarse',
     'contact' => 'Correo de contacto: youshar3sup@gmail.com',
     'exists' =>'Este usuario ya existe',
-    'success' =>'El usuario ha sido creado correctamente'
+    'success' =>'El usuario ha sido creado correctamente',
+    'error' =>'Error'
+
 
 ];

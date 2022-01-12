@@ -56,10 +56,10 @@ class UserRegisterController extends Controller
             ]
             );
             return redirect()->route('landingPage')
-            ->with('success','User created successfully');
+            ->with('success',trans('messages.registerMessage'));
         } else {
             return redirect()->route('landingPage')
-            ->with('error','Has been an error');
+            ->with('error',trans('messages.error'));
         }
     }
     /**

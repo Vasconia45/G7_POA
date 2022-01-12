@@ -25,16 +25,21 @@ return [
     'notRegister' => 'Not Registered?',
     'create' => 'Create an account',
     'enterMail' => 'Enter your Email',
+    'nullMail' => 'You need to insert an email address please.',
+    'validmail' => 'You need a valid email address.',
     'reset' => 'Receive a mail to reset your password:',
+    'sendMail' => 'We have sent you an email, could you please check.',
     'send' => 'Send',
     'username' =>'Username',
     'confirm' =>'Confirm password',
     'date' =>'Birth date',
     'register' =>'Register',
+    'registerMessage' => 'You have successfully registered.',
     'registrarse' =>'Register',
     'contact' => 'Contact mail: youshar3sup@gmail.com',
     'exists' =>'This user already exists',
-    'success' =>'User has been created succesfully'
+    'success' =>'User has been created succesfully.',
+    'error' => 'Error'
     
 
 ];
