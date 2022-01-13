@@ -15,7 +15,21 @@
 
 <body>
     <div>
-        <div class="d-flex justify-content-center align-items-center mt-5">
+        <h1>Profile Page</h1>
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Logout</th>
+            </thead>
+            <tbody>
+                <tr>
+                    
+                    <td><a href="logout">Logout</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="bg-danger d-flex justify-content-center align-items-center mt-5">
             <img src="{{ asset('img/process.gif')}}">
         </div>
     </div>

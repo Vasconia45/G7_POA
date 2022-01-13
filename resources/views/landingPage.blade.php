@@ -37,7 +37,7 @@
         </div>
         @endif
     </div>
-    <div class="row text-center p-2">
+    <div class="text-center p-2">
         <h1>{!! trans('messages.welcome') !!}</h1>
     </div>
     <div class="row mx-auto">
@@ -187,14 +187,14 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="text-center sticky-bottom">
+    <footer class="">
+        <div class="text-center">
             <a href="https://twitter.com/?lang=ES" target="_blank"><i class="bi bi-twitter">Twitter</i></a>
         </div>
         <div class="text-center">
             <a href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook">Facebook</i></a>
         </div>
-        <div class=" text-center">
+        <div class="text-center">
             <a href="https://www.reddit.com/" target="_blank"><i class="bi bi-reddit">Reddit</i></a>
         </div>
         <div class="text-center">

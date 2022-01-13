@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetEmail;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\UserRegisterController;
-use App\Http\Controllers\SupportMail;
 
 /*
 |--------------------------------------------------------------------------

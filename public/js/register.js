@@ -64,7 +64,7 @@ documento.ready(function(){
             Swal.fire({
                 icon: 'warning',
                 title: 'Oops...',
-                text: 'The password needs to be at least 8 characters',
+                text: 'The password needs to be at least 8 characters.',
               })
             return false;
         } else if($("#Passwd1Register").val().length > 16 ){
@@ -96,7 +96,7 @@ documento.ready(function(){
             Swal.fire({
                 icon: 'warning',
                 title: 'Oops...',
-                text: 'The Username cant have more than 20 digits',
+                text: 'The Username cant have more than 20 digits.',
               })
             return false;
         } 
