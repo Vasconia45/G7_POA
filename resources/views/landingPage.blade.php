@@ -19,7 +19,6 @@
     <script src="{{ asset('js/login.js') }}"></script>
     <script src="{{ asset('js/register.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-
 </head>
 
 <body>
@@ -41,9 +40,9 @@
         <h1>{!! trans('messages.welcome') !!}</h1>
     </div>
     <div class="row mx-auto">
-        <div class="col-lg-8 col-md-8 col-sm-12 mx-auto mt-2">
+        <div class="col-lg-9 col-md-10 col-10 mx-auto mt-2">
             <!--Login part-->
-            <div class="login-form">
+            <div class="col-lg-6 col-md-8 col-sm-12 login-form">
                 <form action="{{ route('onProcess')}}" method="GET" id="LoginModal">
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
