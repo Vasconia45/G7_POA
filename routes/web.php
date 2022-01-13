@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetEmail;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\UserRegisterController;
+use App\Http\Controllers\UserSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::get('/onProcess', function(){
 })->name('onProcess');
 
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
+
+/*Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');
+
+Route::post('/login/logout', [UserSessionController::class], 'logout')->name('logout');*/
 
 Route::post('/register', [UserRegisterController::class, 'store'])->name('registerUser');
 
