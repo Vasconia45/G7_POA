@@ -21,7 +21,7 @@
                 <thead>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Logout</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     <tr>
