@@ -50,7 +50,7 @@ class UserRegisterController extends Controller
             User::create([
                 'user_name' => $request->user_name,
                 'email' => $request->email,
-                'password' => Hash::make($request->password),
+                'password' => $request->password,
                 'birth_date' => $request->birth_date,
                 'user_type' => 'user'
             ]

@@ -27,9 +27,9 @@ Route::get('/onProcess', function(){
 
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
-/*Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');
+Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');
 
-Route::post('/login/logout', [UserSessionController::class], 'logout')->name('logout');*/
+Route::post('/login/logout', [UserSessionController::class], 'logout')->name('logout');
 
 Route::post('/register', [UserRegisterController::class, 'store'])->name('registerUser');
 

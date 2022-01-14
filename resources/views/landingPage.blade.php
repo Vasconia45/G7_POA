@@ -37,6 +37,13 @@
         </div>
         @endif
     </div>
+    <div>
+        @if(Session::has('message'))
+        <div class="alert alert-danger">
+            {{ Session::get('message') }}
+        </div>
+        @endif
+    </div>
     <div class="text-center p-2">
         <h1>{!! trans('messages.welcome') !!}</h1>
     </div>
@@ -44,7 +51,7 @@
         <div class="col-lg-9 col-md-10 col-10 mx-auto mt-2">
             <!--Login part-->
             <div class="col-lg-6 col-md-8 col-sm-12 login-form">
-                <form role="form" action="{{ route('onProcess')}}" method="GET" id="LoginModal">
+                <form role="form" action="{{ route('loginUser')}}" method="POST" id="LoginModal">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">

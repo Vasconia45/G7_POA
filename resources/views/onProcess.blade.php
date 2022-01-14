@@ -25,6 +25,8 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>Welcome User</td>
+                        <td>Email user@user.com</td>
                         <td><a href="{{ route('landingPage')}}">Logout</a></td>
                     </tr>
                 </tbody>
