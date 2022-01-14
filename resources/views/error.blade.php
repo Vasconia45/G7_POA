@@ -23,6 +23,9 @@
 </head>
 
 <body>
+    <h1 class="bg-danger text-center">
+        There is an error.
+    </h1>
     <div>
         @if(Session::has('success'))
         <div class="alert alert-success">

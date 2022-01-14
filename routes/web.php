@@ -25,6 +25,10 @@ Route::get('/onProcess', function(){
     return view('onProcess');
 })->name('onProcess');
 
+Route::get('/error', function(){ 
+    return view('error');
+})->name('error');
+
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
 Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');

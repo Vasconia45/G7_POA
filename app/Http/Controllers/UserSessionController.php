@@ -26,10 +26,7 @@ class UserSessionController extends Controller
             return view('onProcess');
             //dd($request->only('email','passwd'));
         } else {
-            dd($request->all());
-            return back()->withErrors([
-                'message' => 'The email or the password is incorrect',
-            ]);
+            return view('error');
         }
         /*if(auth()->attempt([$email,$password]) == false) {
             return back()->withErrors([
