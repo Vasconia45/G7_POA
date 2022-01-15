@@ -35,7 +35,7 @@ return [
     'register' =>'Registro',
     'registerMessage' => 'Se ha registrado correctamente.',
     'registrarse' =>'Registrarse',
-    'contact' => 'Correo de contacto: youshar3sup@gmail.com',
+    'contact' => 'youshar3sup@gmail.com',
     'exists' =>'Este usuario ya existe',
     'success' =>'El usuario ha sido creado correctamente',
     'error' =>'Error'

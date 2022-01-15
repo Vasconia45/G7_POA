@@ -36,7 +36,7 @@ return [
     'register' =>'Register',
     'registerMessage' => 'You have successfully registered.',
     'registrarse' =>'Register',
-    'contact' => 'Contact mail: youshar3sup@gmail.com',
+    'contact' => 'youshar3sup@gmail.com',
     'exists' =>'This user already exists',
     'success' =>'User has been created succesfully.',
     'error' => 'Error'
