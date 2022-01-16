@@ -22,7 +22,7 @@ class UserSessionController extends Controller
         ->first();
             Auth::login($user);
             $data = Auth::user()->email;
-            return $data;
+            return view('onProcess');
             //return redirect('onProcess');
         //$passwordDB = Crypt::decrypt($mailDB); 
         //return $passwordDB;

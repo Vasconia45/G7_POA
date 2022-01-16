@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('/css/process.css') }}">
 </head>
 
+
 <body>
     <div>
         <div>
@@ -26,7 +27,7 @@
                 <tbody>
                     <tr>
                         <td>Welcome User</td>
-                        <td>Email user@user.com</td>
+                        <td>auth()-></td>
                         <td><a href="{{ route('landingPage')}}">Logout</a></td>
                     </tr>
                 </tbody>
@@ -37,5 +38,6 @@
         </div>
     </div>
 </body>
+?>
 
 </html>
