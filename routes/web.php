@@ -35,3 +35,7 @@ Route::post('/register', [UserRegisterController::class, 'store'])->name('regist
 
 Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');
 
+
+/*Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

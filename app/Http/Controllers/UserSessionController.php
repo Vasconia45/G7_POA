@@ -3,26 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class UserSessionController extends Controller
 {
     public function store(Request $request)
     {
+        $password = $request->password;
+        $email = $request->email;
+
+        $hashedPassword = User::where('email', $email)->first();
+
+        if(Hash::check($password, $hashedPassword->password)){
+            $request->session()->put('success');
+            return "yes";
+        } else {
+            return "error";
+        }
         /*$password = $request->password;
         $email = $request->email;
         $mailDB = DB::table('users')
             ->where('email', $email)
-            ->get('password');*/
+            ->get('password');
         $user = User::where('email', $request->email)
         ->where('password',md5($request->password))
         ->first();
             Auth::login($user);
             $data = Auth::user()->email;
-            return view('onProcess');
+            return view('onProcess');*/
             //return redirect('onProcess');
         //$passwordDB = Crypt::decrypt($mailDB); 
         //return $passwordDB;

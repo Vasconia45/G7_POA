@@ -66,7 +66,7 @@
                             <label for="email"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" id="passwd" name="password" class="form-control icon2 rounded mt-2"
+                            <input type="password" id="password" name="password" class="form-control icon2 rounded mt-2"
                                 placeholder="Password">
                             <label for="passwd"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
                                 !!}</label>

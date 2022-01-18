@@ -1,14 +1,17 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserRegisterController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -36,30 +39,35 @@ class UserRegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_name'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-            'birth_date'=>'required',
+            'user_name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'birth_date' => 'required',
         ]);
         $users = DB::table('users')
-                 ->where('user_name', $request->user_name)
-                 ->orwhere('email', $request->email)
-                 ->get();
-        if(count($users) <= 0)
-        {
+            ->where('user_name', $request->user_name)
+            ->orwhere('email', $request->email)
+            ->get();
+        if (count($users) <= 0) {
             User::create([
                 'user_name' => $request->user_name,
                 'email' => $request->email,
-                'password' => md5($request->password),
+                'password' => Hash::make($request->password),
                 'birth_date' => $request->birth_date,
                 'user_type' => 'user'
-            ]
-            );
+            ]);
+            $subject = "Registration";
+            $for = $_POST['email'];
+            Mail::send('confirmation', $request->all(), function ($msj) use ($subject, $for) {
+                $msj->from(env('MAIL_USERNAME'), "YouShar3");
+                $msj->subject($subject);
+                $msj->to($for);
+            });
             return redirect()->route('landingPage')
-            ->with('success',trans('messages.registerMessage'));
+                ->with('success', trans('messages.registerMessage'));
         } else {
             return redirect()->route('landingPage')
-            ->with('error',trans('messages.error'));
+                ->with('error', trans('messages.error'));
         }
     }
     /**
