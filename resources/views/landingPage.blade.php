@@ -20,6 +20,7 @@
     <script src="{{ asset('js/login.js') }}"></script>
     <script src="{{ asset('js/register.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/showHide.js') }}"></script>
 </head>
 
 <body>
@@ -61,15 +62,18 @@
                     </div>
                     <div class="form-group">
                         <div class="form-floating">
-                            <input type="text" id="email" name="email" class="form-control icon rounded mt-2" value
-                                placeholder=" Email">
+                            <input type="text" id="email" name="email" class="form-control icon rounded mt-2" value placeholder=" Email">
                             <label for="email"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
                         </div>
-                        <div class="form-floating">
-                            <input type="password" id="password" name="password" class="form-control icon2 rounded mt-2"
-                                placeholder="Password">
-                            <label for="passwd"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
-                                !!}</label>
+                        <div class="d-flex align-items-center">
+                            <div class="col-12 form-floating">
+                                <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                                <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
+                                    !!}</label>
+                            </div>
+                            <div class="form-floating">
+                                <span><i class="bi bi-eye-fill" id="showHideLogin"></i></span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -77,20 +81,17 @@
                             !!}</button>
                     </div>
                     <div class="row text-center mt-3">
-                        <p class="text-center small"><a href="#" data-bs-toggle="modal"
-                                data-bs-target="#ModalResetPassword">{!! trans('messages.forgot') !!}</a></p>
+                        <p class="text-center small"><a href="#" data-bs-toggle="modal" data-bs-target="#ModalResetPassword">{!! trans('messages.forgot') !!}</a></p>
                     </div>
                 </form>
                 <!--Reset password-->
-                <div class="modal fade" id="ModalResetPassword" tabindex="-1" aria-labelledby="ModalResetPasswordLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="ModalResetPassword" tabindex="-1" aria-labelledby="ModalResetPasswordLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">{!! trans('messages.enterMail') !!}</h5>
                                 </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form role="form" id="ModalReset" action="{{ route('resetMail')}}" method="POST">
@@ -100,14 +101,12 @@
                                             <p>{!! trans('messages.reset') !!}</p>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="text" id="EmailReset" name="email"
-                                                class="form-control icon rounded  mt-2" placeholder="Email">
+                                            <input type="text" id="EmailReset" name="email" class="form-control icon rounded  mt-2" placeholder="Email">
                                             <label for="EmailReset"><i class="bi bi-envelope-fill"></i>{!!
                                                 trans('messages.mail') !!}</label>
                                         </div>
                                         <div class="form-floating">
-                                            <button type="submit" class="btn btn-default btn-block mt-4"
-                                                id="sendButton">@lang('messages.send')</button>
+                                            <button type="submit" class="btn btn-default btn-block mt-4" id="sendButton">@lang('messages.send')</button>
                                         </div>
                                     </div>
                                 </form>
@@ -115,20 +114,17 @@
                         </div>
                     </div>
                 </div>
-                <p class="text-center small">{!! trans('messages.notRegister') !!}<a href="#" data-bs-toggle="modal"
-                        data-bs-target="#ModalRegister"> {!! trans('messages.create') !!}</a></p>
+                <p class="text-center small">{!! trans('messages.notRegister') !!}<a href="#" data-bs-toggle="modal" data-bs-target="#ModalRegister"> {!! trans('messages.create') !!}</a></p>
 
 
 
                 <!--Register modal-->
-                <div class="modal fade" id="ModalRegister" tabindex="-1" aria-labelledby="ModalRegisterLabel"
-                    aria-hidden="true">
+                <div class="modal fade" id="ModalRegister" tabindex="-1" aria-labelledby="ModalRegisterLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="ModalRegisterLabel">{!! trans('messages.register') !!}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form role="form" id="RegisterModal" action="{{ route('registerUser')}}" method="POST">
@@ -138,32 +134,37 @@
                                             <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">
                                         </div>
                                         <div class="form-floating">
-                                            <input type="username" id="UsernameRegister" name="user_name"
-                                                class="form-control icon2 rounded mt-2" placeholder=" Username">
+                                            <input type="username" id="UsernameRegister" name="user_name" class="form-control icon2 rounded mt-2" placeholder=" Username">
                                             <label for="UsernameRegister"><i class="bi bi-person-circle"></i>{!!
                                                 trans('messages.username') !!}</label>
                                         </div>
-                                        <div class="form-floating">
-                                            <input type="password" id="Passwd1Register" name="password"
-                                                class="form-control icon2 rounded  mt-2" placeholder=" Password">
-                                            <label for="Passwd1Register"><i class="bi bi-lock-fill"></i>{!!
-                                                trans('messages.password') !!}</label>
+                                        <div class="d-flex align-items-center">
+                                            <div class="col-12 form-floating">
+                                                <input type="password" id="Passwd1Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                                                <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
+                                                    !!}</label>
+                                            </div>
+                                            <div class="form-floating">
+                                                <span><i class="bi bi-eye-fill" id="showHideRegister"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="col-12 form-floating">
+                                                <input type="password" id="Passwd2Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                                                <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
+                                                    !!}</label>
+                                            </div>
+                                            <div class="form-floating">
+                                                <span><i class="bi bi-eye-fill" id="showHideRegister2"></i></span>
+                                            </div>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="password" id="Passwd2Register"
-                                                class="form-control icon2 rounded  mt-2" placeholder=" Password">
-                                            <label for="Passwd2Register"><i class="bi bi-lock-fill"></i>{!!
-                                                trans('messages.confirm') !!}</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <input type="text" id="EmailRegister" name="email"
-                                                class="form-control icon rounded  mt-2" value placeholder=" Email">
+                                            <input type="text" id="EmailRegister" name="email" class="form-control icon rounded  mt-2" value placeholder=" Email">
                                             <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>{!!
                                                 trans('messages.mail') !!}</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="date" id="BirthDateRegister" name="birth_date"
-                                                class="form-control icon rounded mt-2" value placeholder="BirthDate">
+                                            <input type="date" id="BirthDateRegister" name="birth_date" class="form-control icon rounded mt-2" value placeholder="BirthDate">
                                             <label for="BirthDateRegister">{!! trans('messages.date') !!}</label>
                                         </div>
                                         <div class="form-floating">

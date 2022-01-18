@@ -2,7 +2,7 @@ let documento = $("document");
 
 documento.ready(function () {
     $("#LoginModal").submit(function () {
-        if ($("#passwd").val().length < 1) {
+        if ($("#PasswordLogin").val().length < 1) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

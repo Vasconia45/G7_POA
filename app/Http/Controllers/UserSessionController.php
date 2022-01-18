@@ -18,7 +18,7 @@ class UserSessionController extends Controller
 
         if(Hash::check($password, $hashedPassword->password)){
             $request->session()->put('success');
-            return "yes";
+            return redirect()->route('inicio');
         } else {
             return "error";
         }

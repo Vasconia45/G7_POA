@@ -56,19 +56,25 @@ class UserRegisterController extends Controller
                 'birth_date' => $request->birth_date,
                 'user_type' => 'user'
             ]);
-            $subject = "Registration";
-            $for = $_POST['email'];
-            Mail::send('confirmation', $request->all(), function ($msj) use ($subject, $for) {
-                $msj->from(env('MAIL_USERNAME'), "YouShar3");
-                $msj->subject($subject);
-                $msj->to($for);
-            });
+            $this->confirmation($request);
             return redirect()->route('landingPage')
                 ->with('success', trans('messages.registerMessage'));
         } else {
             return redirect()->route('landingPage')
                 ->with('error', trans('messages.error'));
         }
+    }
+    public function confirmation(Request $request){
+        $subject = "Registration";
+        $for = $_POST['email'];
+        Mail::send('confirmation', $request->all(), function ($msj) use ($subject, $for) {
+            $msj->from(env('MAIL_USERNAME'), "YouShar3");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+    }
+    public function registro(){
+        return "Epa";
     }
     /**
      * Display the specified resource.

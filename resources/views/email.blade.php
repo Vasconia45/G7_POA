@@ -8,7 +8,6 @@
     <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">
     <a>Link</a>
 
-
 </html>
 
 
