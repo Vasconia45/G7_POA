@@ -38,24 +38,11 @@ class UserRegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'user_name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'birth_date' => 'required',
-        ]);
         $users = DB::table('users')
             ->where('user_name', $request->user_name)
             ->orwhere('email', $request->email)
             ->get();
         if (count($users) <= 0) {
-            User::create([
-                'user_name' => $request->user_name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-                'birth_date' => $request->birth_date,
-                'user_type' => 'user'
-            ]);
             $this->confirmation($request);
             return redirect()->route('landingPage')
                 ->with('success', trans('messages.registerMessage'));
@@ -64,17 +51,34 @@ class UserRegisterController extends Controller
                 ->with('error', trans('messages.error'));
         }
     }
-    public function confirmation(Request $request){
+    public function confirmation(Request $request)
+    {
         $subject = "Registration";
         $for = $_POST['email'];
-        Mail::send('confirmation', $request->all(), function ($msj) use ($subject, $for) {
+        Mail::send('confirmationMail', $request->all(), function ($msj) use ($subject, $for) {
             $msj->from(env('MAIL_USERNAME'), "YouShar3");
             $msj->subject($subject);
             $msj->to($for);
         });
     }
-    public function registro(){
-        return "Epa";
+    public function registro(Request $request)
+    {
+        $request->validate([
+            'user_name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'birth_date' => 'required',
+        ]);
+
+        User::create([
+            'user_name' => $request->user_name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'birth_date' => $request->birth_date,
+            'user_type' => 'user'
+        ]);
+
+        return view('inicio');
     }
     /**
      * Display the specified resource.

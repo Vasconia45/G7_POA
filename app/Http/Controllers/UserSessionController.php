@@ -17,8 +17,9 @@ class UserSessionController extends Controller
         $hashedPassword = User::where('email', $email)->first();
 
         if(Hash::check($password, $hashedPassword->password)){
-            $request->session()->put('success');
-            return redirect()->route('inicio');
+
+            //$request->session()->flush();
+            return $request->session()->all();
         } else {
             return "error";
         }

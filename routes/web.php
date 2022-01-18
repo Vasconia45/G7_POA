@@ -25,15 +25,15 @@ Route::get('/inicio', function(){
     return view('inicio');
 })->name('inicio');
 
-Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
-
 Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');
 
 Route::post('/login/logout', [UserSessionController::class], 'logout')->name('logout');
 
 Route::post('/register', [UserRegisterController::class, 'store'])->name('registerUser');
 
-Route::post('/register/confirmation', [UserRegisterController::class, 'registro'])->name('confirmation');
+Route::get('/register/confirmation', [UserRegisterController::class, 'registro'])->name('confirmation');
+
+Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
 Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');
 
