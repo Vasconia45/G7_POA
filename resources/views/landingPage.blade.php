@@ -65,15 +65,11 @@
                             <input type="text" id="email" name="email" class="form-control icon rounded mt-2" value placeholder=" Email">
                             <label for="email"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <div class="col-12 form-floating">
-                                <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
-                                <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
-                                    !!}</label>
-                            </div>
-                            <div class="form-floating">
-                                <span><i class="bi bi-eye-fill" id="showHideLogin"></i></span>
-                            </div>
+                        <div class="form-floating">
+                            <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                            <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
+                                !!}</label>
+                            <span class="bi bi-eye-fill ojoPassword" id="showHideLogin"></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -138,47 +134,41 @@
                                             <label for="UsernameRegister"><i class="bi bi-person-circle"></i>{!!
                                                 trans('messages.username') !!}</label>
                                         </div>
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-12 form-floating">
-                                                <input type="password" id="Passwd1Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
-                                                <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
-                                                    !!}</label>
-                                            </div>
-                                            <div class="form-floating">
-                                                <span><i class="bi bi-eye-fill" id="showHideRegister"></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-12 form-floating">
-                                                <input type="password" id="Passwd2Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
-                                                <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
-                                                    !!}</label>
-                                            </div>
-                                            <div class="form-floating">
-                                                <span><i class="bi bi-eye-fill" id="showHideRegister2"></i></span>
-                                            </div>
-                                        </div>
                                         <div class="form-floating">
-                                            <input type="text" id="EmailRegister" name="email" class="form-control icon rounded  mt-2" value placeholder=" Email">
-                                            <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>{!!
-                                                trans('messages.mail') !!}</label>
+                                            <input type="password" id="Passwd1Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                                            <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
+                                                !!}</label>
+                                                <span class="bi bi-eye-fill ojoPassword" id="showHideRegister"></span>
                                         </div>
+
                                         <div class="form-floating">
-                                            <input type="date" id="BirthDateRegister" name="birth_date" class="form-control icon rounded mt-2" value placeholder="BirthDate">
-                                            <label for="BirthDateRegister">{!! trans('messages.date') !!}</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <button type="submit" class="btn btn-default btn-block mt-4">{!!
-                                                trans('messages.registrarse') !!}</button>
+                                            <input type="password" id="Passwd2Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                                            <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
+                                                !!}</label>
+                                                <span class="bi bi-eye-fill ojoPassword" id="showHideRegister2"></span>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="form-floating">
+                                        <input type="text" id="EmailRegister" name="email" class="form-control icon rounded  mt-2" value placeholder=" Email">
+                                        <label for="EmailRegister"><i class="bi bi-envelope-fill"></i>{!!
+                                            trans('messages.mail') !!}</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="date" id="BirthDateRegister" name="birth_date" class="form-control icon rounded mt-2" value placeholder="BirthDate">
+                                        <label for="BirthDateRegister">{!! trans('messages.date') !!}</label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <button type="submit" class="btn btn-default btn-block mt-4">{!!
+                                            trans('messages.registrarse') !!}</button>
+                                    </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <footer>
         <div class="d-flex align-self-center justify-content-center mt-5">

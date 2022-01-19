@@ -67,3 +67,10 @@ footer{
 a{
     text-decoration:none;
 }
+
+.ojoPassword{
+    margin-right: 30px;
+    margin-top: -40px;
+    cursor: pointer;
+    float: right;
+}

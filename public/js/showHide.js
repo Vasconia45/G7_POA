@@ -9,7 +9,6 @@ function inicio() {
     let button3 = $('#showHideRegister2');
     button3.click(register2);
 }
-
 function login() {
     let password = $('#PasswordLogin');
     if (password.get(0).type === "password") {

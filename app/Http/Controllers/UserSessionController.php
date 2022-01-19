@@ -19,7 +19,7 @@ class UserSessionController extends Controller
         if(Hash::check($password, $hashedPassword->password)){
 
             //$request->session()->flush();
-            return $request->session()->all();
+            return view('inicio');
         } else {
             return "error";
         }

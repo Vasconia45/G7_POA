@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class UserRegisterController extends Controller
 {
@@ -63,22 +64,34 @@ class UserRegisterController extends Controller
     }
     public function registro(Request $request)
     {
+        //$request = Session::get('request');
+        dd($request);
+        /*
         $request->validate([
             'user_name' => 'required',
-            'email' => 'required',
+            'email' => 'required',  
             'password' => 'required',
             'birth_date' => 'required',
         ]);
-
         User::create([
             'user_name' => $request->user_name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'birth_date' => $request->birth_date,
-            'user_type' => 'user'
+            'user_type' => 'user',
         ]);
+        */
 
         return view('inicio');
+        /*User::create([
+    'user_name' => $request->user_name,
+    'email' => $request->email,
+    'password' => Hash::make($request->password),
+    'birth_date' => $request->birth_date,
+    'user_type' => 'user'
+    ]);
+
+    return view('inicio');*/
     }
     /**
      * Display the specified resource.
