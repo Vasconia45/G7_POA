@@ -52,6 +52,7 @@ class UserRegisterController extends Controller
                 ->with('error', trans('messages.error'));
         }
     }
+    
     public function confirmation(Request $request)
     {
         $subject = "Registration";
@@ -61,12 +62,11 @@ class UserRegisterController extends Controller
             $msj->subject($subject);
             $msj->to($for);
         });
+
+        return view('confirmationMail', ['request' => $request->all()]);
     }
     public function registro(Request $request)
     {
-        //$request = Session::get('request');
-        dd($request);
-        /*
         $request->validate([
             'user_name' => 'required',
             'email' => 'required',  
@@ -80,18 +80,6 @@ class UserRegisterController extends Controller
             'birth_date' => $request->birth_date,
             'user_type' => 'user',
         ]);
-        */
-
-        return view('inicio');
-        /*User::create([
-    'user_name' => $request->user_name,
-    'email' => $request->email,
-    'password' => Hash::make($request->password),
-    'birth_date' => $request->birth_date,
-    'user_type' => 'user'
-    ]);
-
-    return view('inicio');*/
     }
     /**
      * Display the specified resource.

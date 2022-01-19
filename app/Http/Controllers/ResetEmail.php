@@ -19,4 +19,8 @@ class ResetEmail extends Controller
         return redirect()->back()
         ->with('success',trans('messages.sendMail'));
     }
+
+    public function resetForm(){
+        return "Hello";
+    }
 }

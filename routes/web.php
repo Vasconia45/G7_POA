@@ -35,6 +35,8 @@ Route::get('/register/confirmation', [UserRegisterController::class, 'registro']
 
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
+Route::get('/reset/resetForm', [ResetEmail::class, 'resetForm'])->name('resetMailForm');
+
 Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');
 
 

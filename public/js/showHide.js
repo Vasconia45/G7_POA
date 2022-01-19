@@ -2,36 +2,19 @@
 documento.ready(inicio);
 
 function inicio() {
-    let button = $('#showHideLogin');
-    button.click(login);
-    let button2 = $('#showHideRegister');
-    button2.click(register1);
-    let button3 = $('#showHideRegister2');
-    button3.click(register2);
-}
-function login() {
-    let password = $('#PasswordLogin');
-    if (password.get(0).type === "password") {
-        password.get(0).type = "text";
-    } else {
-        password.get(0).type = "password";
-    }
+    let button = $('.ojoPassword');
+    button.on('click', show);
 }
 
-function register1() {
-    let password = $('#Passwd1Register');
-    if (password.get(0).type === "password") {
-        password.get(0).type = "text";
-    } else {
-        password.get(0).type = "password";
-    }
-}
-
-function register2() {
-    let password = $('#Passwd2Register');
-    if (password.get(0).type === "password") {
-        password.get(0).type = "text";
-    } else {
-        password.get(0).type = "password";
+function show(){
+    let input = $(this).parent().children('input');
+    if(input.get(0).type === "password"){
+        input.get(0).type = "text";
+        $(this).removeClass('bi-eye-slash-fill');
+        $(this).addClass('bi-eye-fill');
+    } else{
+        input.get(0).type = "password";
+        $(this).removeClass('bi-eye-fill');
+        $(this).addClass('bi-eye-slash-fill');
     }
 }
