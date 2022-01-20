@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YouShar3</title>
-    <link rel="shortcut icon" href="{{ asset('img/LogoNameNoBackground.ico')}}">
+    <link rel="shortcut icon" href="{{ URL('storage/LogoNameNoBackground.ico')}}">
     <!--HTML-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -57,7 +57,7 @@
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">
+                            <img src="{{ URL('storage/LogoNameNoBackground.png') }}" class="w-50">
                         </div>
                     </div>
                     <div class="form-group">
@@ -69,7 +69,7 @@
                             <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
                             <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
                                 !!}</label>
-                            <span class="bi bi-eye-slash-fill ojoPassword"></span>
+                            <span class="bi bi-eye-fill ojoPassword"></span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -127,7 +127,7 @@
                                     {{ csrf_field() }}
                                     <div class="form-group">
                                         <div class="form-floating text-center">
-                                            <img src="{{ asset('img/LogoNameNoBackground.png') }}" class="w-50">
+                                            <img src="{{ URL('storage/LogoNameNoBackground.png') }}" class="w-50">
                                         </div>
                                         <div class="form-floating">
                                             <input type="username" id="UsernameRegister" name="user_name" class="form-control icon2 rounded mt-2" placeholder=" Username">
@@ -138,13 +138,13 @@
                                             <input type="password" id="Passwd1Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
                                             <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.password')
                                                 !!}</label>
-                                            <span class="bi bi-eye-slash-fill ojoPassword"></span>
+                                            <span class="bi bi-eye-fill ojoPassword"></span>
                                         </div>
                                         <div class="form-floating">
                                             <input type="password" id="Passwd2Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
                                             <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
                                                 !!}</label>
-                                            <span class="bi bi-eye-slash-fill ojoPassword"></span>
+                                            <span class="bi bi-eye-fill ojoPassword"></span>
                                         </div>
                                         <div class="form-floating">
                                             <input type="text" id="EmailRegister" name="email" class="form-control icon rounded  mt-2" value placeholder=" Email">

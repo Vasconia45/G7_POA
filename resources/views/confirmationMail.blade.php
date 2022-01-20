@@ -5,7 +5,7 @@
 
 </head>
     <p id="texto">This is the confirmation email for the user registered.</p>
-    <img src="{{ asset('/public/img/LogoNameNoBackground.png') }}" class="w-50">
+    <img src="{{ URL('img/LogoNameNoBackground.png') }}" class="w-50">
     <form action="{{ route('confirmation')}}" method="GET">
     {{ csrf_field() }}
         <input type="hidden" name="user_name" class="form-control icon2 rounded mt-2" placeholder=" Username" value="{{$user_name}}">
