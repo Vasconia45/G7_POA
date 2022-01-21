@@ -44,7 +44,13 @@
             {{ Session::get('message') }}
         </div>
         @endif
-
+    </div>
+    <div>
+        @if(session('successful_message'))
+            <div class="alert alert-success">
+            {{ session('successful_message') }}
+            </div>
+        @endif
     </div>
     <div class="text-center p-2">
         <h1>{!! trans('messages.welcome') !!}</h1>

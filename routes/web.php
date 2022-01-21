@@ -25,6 +25,10 @@ Route::get('/inicio', function(){
     return view('inicio');
 })->name('inicio');
 
+Route::get('/administrator', function(){
+    return view('administrator');
+})->name('administrator');
+
 Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');
 
 Route::post('/login/logout', [UserSessionController::class], 'logout')->name('logout');
@@ -36,6 +40,10 @@ Route::get('/register/confirmation', [UserRegisterController::class, 'registro']
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
 Route::get('/reset/resetForm', [ResetEmail::class, 'resetForm'])->name('resetMailForm');
+
+Route::post('/updateUser', [UserSessionController::class, 'update'])->name('updateUser');
+
+Route::get('/userData/{id}', [UserSessionController::class, 'edit'])->name('editUser');
 
 Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');
 

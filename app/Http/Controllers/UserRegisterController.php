@@ -68,9 +68,9 @@ class UserRegisterController extends Controller
     public function registro(Request $request)
     {
         $request->validate([
-            'user_name' => 'required',
-            'email' => 'required',  
-            'password' => 'required',
+            'user_name' => 'required|max:20|unique:users',
+            'email' => 'required|email|unique:users',  
+            'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
             'birth_date' => 'required',
         ]);
         User::create([

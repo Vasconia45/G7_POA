@@ -24,9 +24,7 @@
       <td align="center" style="padding:0;">
         <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
           <tr>
-            <td align="center" style="padding:40px 0 30px 0;background:#70bbd9;">
-              <img src="{{ URL('img/LogoNameNoBackground.png') }}" alt="" width="300" style="height:auto;display:block;" />
-            </td>
+              <img src="https://photos.google.com/u/1/photo/AF1QipNdfKFf_HVW2uRm3SOWCk8SFaOo9HZik_bx8Vtr"/>
           </tr>
           <tr>
             <td style="padding:36px 30px 42px 30px;">

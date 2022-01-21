@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 "id" => "1",
                 "user_name" => "admin",
                 "email" => "youshar3sup@gmail.com",
-                "password" => Hash::make("root"),
+                "password" => Hash::make("Doñosti34"),
                 "birth_date" => "2021-12-26",
                 "user_type" => "admin"
             ]
