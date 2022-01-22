@@ -27,7 +27,7 @@ return [
     'enterMail' => 'Enter your Email',
     'nullMail' => 'You need to insert an email address please.',
     'validmail' => 'You need a valid email address.',
-    'reset' => 'Receive a mail to reset your password:',
+    'reset' => 'Receive an email to reset your password:',
     'sendMail' => 'We have sent you an email, could you please check.',
     'send' => 'Send',
     'username' =>'Username',

@@ -46,7 +46,7 @@ class UserRegisterController extends Controller
         if (count($users) <= 0) {
             $this->confirmation($request);
             return redirect()->route('landingPage')
-                ->with('success', trans('messages.registerMessage'));
+                ->with('success', trans('messages.sendMail'));
         } else {
             return redirect()->route('landingPage')
                 ->with('error', trans('messages.error'));
@@ -57,13 +57,13 @@ class UserRegisterController extends Controller
     {
         $subject = "Registration";
         $for = $_POST['email'];
-        Mail::send('confirmationMail', $request->all(), function ($msj) use ($subject, $for) {
+        Mail::send('/emails/confirmationMail', $request->all(), function ($msj) use ($subject, $for) {
             $msj->from(env('MAIL_USERNAME'), "YouShar3");
             $msj->subject($subject);
             $msj->to($for);
         });
 
-        return view('confirmationMail', ['request' => $request->all()]);
+        return view('/emails/confirmationMail', ['request' => $request->all()]);
     }
     public function registro(Request $request)
     {
@@ -80,6 +80,9 @@ class UserRegisterController extends Controller
             'birth_date' => $request->birth_date,
             'user_type' => 'user',
         ]);
+
+        return redirect()->route('landingPage')
+        ->with('success', trans('messages.registerMessage'));
     }
     /**
      * Display the specified resource.

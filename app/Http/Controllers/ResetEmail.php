@@ -11,7 +11,7 @@ class ResetEmail extends Controller
     public function send(Request $request){
         $subject = "Forgot the password??";
         $for = $_POST['email'];
-        Mail::send('email',$request->all(), function($msj) use($subject,$for){
+        Mail::send('/emails/email',$request->all(), function($msj) use($subject,$for){
             $msj->from(env('MAIL_USERNAME'),"YouShar3");
             $msj->subject($subject);
             $msj->to($for);
@@ -21,6 +21,6 @@ class ResetEmail extends Controller
     }
 
     public function resetForm(){
-        return "Hello";
+        return redirect()->route('ResetFormulario');
     }
 }

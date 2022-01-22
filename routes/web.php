@@ -29,6 +29,10 @@ Route::get('/administrator', function(){
     return view('administrator');
 })->name('administrator');
 
+Route::get('/reset/resetFormulario', function(){
+    return view('resetPassword');
+})->name('ResetFormulario');
+
 Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');
 
 Route::post('/login/logout', [UserSessionController::class], 'logout')->name('logout');
@@ -39,7 +43,7 @@ Route::get('/register/confirmation', [UserRegisterController::class, 'registro']
 
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
-Route::get('/reset/resetForm', [ResetEmail::class, 'resetForm'])->name('resetMailForm');
+Route::get('/reset', [ResetEmail::class, 'resetForm'])->name('resetMailForm');
 
 Route::post('/updateUser', [UserSessionController::class, 'update'])->name('updateUser');
 
