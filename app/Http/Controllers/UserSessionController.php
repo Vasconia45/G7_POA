@@ -24,10 +24,6 @@ class UserSessionController extends Controller
         elseif(Hash::check($password, $hashedPassword->password) && $email == $hashedPassword->email){
             return view('inicio');
         }
-        else{
-            return redirect()->route('landingPage')
-            ->with('error', trans('messages.error'));
-        }
     }
     public function destroy()
     {
@@ -79,7 +75,7 @@ class UserSessionController extends Controller
             $users = User::Where('user_type', 'user')->get();
             return view('administrator', compact('users'))->with(['successful_delete_message' => 'User has been deleted successfully']);
         } else {
-            return redirect()->route('userData/{id}')->with(['error_message' => 'There has been an error.']);
+            return view('administrator')->with(['error_message' => 'There has been an error.']);
         }
     }
 }
