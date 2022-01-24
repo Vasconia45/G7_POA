@@ -11,7 +11,7 @@
   <link href="css/estiloLanding.css" rel="stylesheet" type="text/css">
 </head>
 
-<body style="background-image: url(img/paisaje.jpg); background-color: #EBF6FF; background-size: cover; height: 70em; background-attachment: fixed;">
+<body style="background-image: URL('storage/paisaje.jpg'); background-color: #EBF6FF; background-size: cover; height: 70em; background-attachment: fixed;">
   <nav class="navbar navbar-light navbar-expand-sm  d-flex flex-row" style="background-color:#BBE4F8;">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -23,7 +23,7 @@
         <div class="col-lg-7 col-md-6 col-12 d-flex">
           <div class="row">
             <div class="col-lg-4 d-flex">
-              <img src="img/logo.png" class="rounded-circle" style="width: 60px;">
+              <img src="{{ URL('storage/logo.png')}}" class="rounded-circle" style="width: 60px;">
               <label class="text-dark mt-3 ml-2">YOUSHAR3</label>
             </div>
             <div class="col-lg-4 d-flex align-items-center justify-content-center">
@@ -78,17 +78,17 @@
     <div class="row d-flex justify-content-center">
       <div class="col-lg-6 col-md-7 col-sm-5  card" style="background-color: #BBE4F8;">
         <div class="card-header">
-          <img src="img/pedro.jfif" class="rounded-circle" style="width: 100px;">
+          <img src="{{ URL('storage/pedro.jfif')}}" class="rounded-circle" style="width: 100px;">
           <span>Pedro {!! trans('messages.upload') !!}</span>
         </div>
         <div class="card-body conatiner">
           <h5>Hello Paris!</h5> <br> <span> <a href="#" style="text-decoration: none;">Travelling</a></span>
-          <img src="img/paris.jpg" style="width: 90%;" class="mb-2 mt-2">
+          <img src="{{ URL('storage/paris.jpg')}}" style="width: 90%;" class="mb-2 mt-2">
           <p>I finally arrived to Paris! First time int the city of love. So excited to explore it.</p>
         </div>
         <div class="card-footer" style="background-color: #EBF6FF;">
           <div class="comment">
-            <img src="img/maria.jfif" class="rounded-circle" style="width: 70px; padding: 10px;">
+            <img src="{{ URL('storage/maria.jfif')}}" class="rounded-circle" style="width: 70px; padding: 10px;">
             <br>
             <textarea style="width: 70%; height: 70%;" class="ml-5"></textarea>
             <button type="submit" class="btn" style="background-color: #81C92C;" style="margin-left: 100px;">{!! trans('messages.comment') !!}</button>
@@ -100,19 +100,19 @@
     <div class="row mt-2 d-flex justify-content-center">
       <div class="col-lg-6 col-md-7 col-sm-5 card" style="background-color: #BBE4F8;">
         <div class="card-header">
-          <img src="img/laura.jfif" class="cardimg rounded-circle" style="width: 100px;">
+          <img src="{{ URL('storage/laura.jfif')}}" class="cardimg rounded-circle" style="width: 100px;">
           <span>Laura {!! trans('messages.upload') !!}</span>
         </div>
         <div class="card-body conatiner">
           <h5>My first Perfect</h5> <br> <span> <a href="#" style="text-decoration: none;">FightingGames</a></span>
           <div class="embed-responsive embed-responsive-16by9 mt-2">
-            <iframe style="width: 90%; height: 90%;" src="img/fighting.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe style="width: 90%; height: 90%;" src="{{ URL('storage/fighting.mp4')}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <p>First perfect with grappler, feels good.</p>
         </div>
         <div class="card-footer" style="background-color: #EBF6FF;">
           <div class="comment">
-            <img src="img/maria.jfif" class="rounded-circle" style="width: 70px; padding: 10px;">
+            <img src="{{ URL('storage/maria.jfif')}}" class="rounded-circle" style="width: 70px; padding: 10px;">
             <br>
             <textarea style="width: 70%; height: 70%;" class="ml-5"></textarea>
             <button type="submit" class="btn" style="background-color: #81C92C;" style="margin-left: 100px;">{!! trans('messages.comment') !!}</button>
@@ -124,7 +124,7 @@
     <div class="row mt-2 d-flex justify-content-center">
       <div class="col-lg-6 col-md-7 col-sm-5 card" style="background-color: #BBE4F8;">
         <div class="card-header">
-          <img src="img/phill.jfif" class="cardimg rounded-circle" style="width: 100px;">
+          <img src="{{ URL('storage/phill.jfif')}}" class="cardimg rounded-circle" style="width: 100px;">
           <span>Phill {!! trans('messages.upload') !!}</span>
         </div>
         <div class="card-body conatiner">
@@ -132,7 +132,7 @@
         </div>
         <div class="card-footer" style="background-color: #EBF6FF;">
           <div class="comment">
-            <img src="img/maria.jfif" class="rounded-circle" style="width: 70px; padding: 10px;">
+            <img src="{{ URL('storage/maria.jfif')}}" class="rounded-circle" style="width: 70px; padding: 10px;">
             <br>
             <textarea style="width: 70%; height: 70%;" class="ml-5"></textarea>
             <button type="submit" class="btn" style="background-color: #81C92C;" style="margin-left: 100px;">{!! trans('messages.comment') !!}</button>

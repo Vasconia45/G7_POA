@@ -47,6 +47,8 @@ Route::get('/reset', [ResetEmail::class, 'resetForm'])->name('resetMailForm');
 
 Route::post('/updateUser', [UserSessionController::class, 'update'])->name('updateUser');
 
+Route::post('/deleteUser', [UserSessionController::class, 'delete'])->name('deleteUser');
+
 Route::get('/userData/{id}', [UserSessionController::class, 'edit'])->name('editUser');
 
 Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');

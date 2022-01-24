@@ -1,6 +1,6 @@
 
 
-documento.ready(function(){
+$("document").ready(function(){
 
     $("#RegisterModal").submit(function(){
         if($("#BirthDateRegister").val().length < 1) {

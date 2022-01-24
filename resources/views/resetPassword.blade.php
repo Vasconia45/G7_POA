@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('/css/estiloLandingPage.css') }}">
     <!--JS-->
-    <script src="jquery-3.6.0.js"></script>
+    <script src="{{asset('jquery-3.6.0.js')}}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/showHide.js') }}"></script>
 </head>
@@ -28,13 +28,13 @@
                 <div class="form-floating">
                     <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
                     <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>New password</label>
-                    <span class="bi bi-eye-fill ojoPassword2"></span>
+                    <span class="bi bi-eye-fill ojoPassword"></span>
                 </div>
                 <div class="form-floating">
                     <input type="password" id="Passwd2Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
                     <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
                         !!}</label>
-                    <span class="bi bi-eye-fill ojoPassword2"></span>
+                        <span class="bi bi-eye-fill ojoPassword"></span>
                 </div>
             </div>
             <div class="form-group">

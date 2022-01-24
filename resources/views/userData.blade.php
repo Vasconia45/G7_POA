@@ -19,8 +19,9 @@
     <script src="{{ asset('js/login.js') }}"></script>
     <script src="{{ asset('js/register.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/showHide.js') }}"></script>
 </head>
-<body>
+<body id="userDataAdmin">
 <div>
         @if(session('error_message'))
             <div class="alert alert-danger">
@@ -30,7 +31,7 @@
     </div>
     <div>
         <div class="login-form col-lg-4 col-md-4 col-12 mx-auto">
-            <form role="form" action="{{ route('updateUser')}}" method="POST">
+            <form role="form" method="POST" id="userDataForm">
                 {{ csrf_field() }}
                 <div class="form-group row mx-auto d-flex flex-column">
                     <div class="form-floating text-center ">
@@ -67,8 +68,10 @@
                         <label for="BirthDateRegister">{!! trans('messages.date') !!}</label>
                     </div>
                     <div class="form-floating">
-                        <button type="submit" class="btn btn-default btn-block mt-4">{!!
-                            trans('messages.registrarse') !!}</button>
+                        <button type="submit" formaction="{{ route('updateUser')}}" class="btn btn-default btn-block mt-4">Update</button>
+                    </div>
+                    <div class="form-floating">
+                        <button type="submit" formaction="{{ route('deleteUser')}}" class="btn btn-default btn-block mt-4">Delete</button>
                     </div>
                 </div>
             </form>

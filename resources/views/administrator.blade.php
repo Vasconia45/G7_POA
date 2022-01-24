@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>YouShar3</title>
     <meta charset="utf-8" />
@@ -11,29 +12,45 @@
     <!--CSS-->
     <link rel="stylesheet" href="{{ asset('/css/process.css') }}">
 </head>
+
 <body>
+<div>
+        @if(session('successful_delete_message'))
+            <div class="alert alert-success">
+            {{ session('successful_delete_message') }}
+            </div>
+        @endif
+    </div>
+    <div>
+        @if(session('successful_message'))
+        <div class="alert alert-success">
+            {{ session('successful_message') }}
+        </div>
+        @endif
+    </div>
     <div>
         <div>
             <h1>Username</h1>
             @if (is_countable( $users ) && count( $users ) > 0)
-                <table class='table'>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Edit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($users as $user)
-                        <tr>    
-                            <th>{{$user->user_name}}</th>
-                            <th>{{$user->email}}</th>  
-                            <th><a href="/userData/{{ $user->id }}">Edit</a></th> </th>          
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Edit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($users as $user)
+                    <tr>
+                        <th>{{$user->user_name}}</th>
+                        <th>{{$user->email}}</th>
+                        <th><a href="/userData/{{ $user->id }}">Edit</a></th>
+                        </th>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
             @endif
         </div>
         <div class="d-flex justify-content-center align-items-center mt-5">
@@ -42,4 +59,5 @@
     </div>
 </body>
 ?>
+
 </html>

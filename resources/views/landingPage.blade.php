@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('/css/estiloLandingPage.css') }}">
     <!--JS-->
-    <script src="jquery-3.6.0.js"></script>
+    <script src="{{asset('jquery-3.6.0.js')}}"></script>
     <script src="{{ asset('js/reset.js') }}"></script>
     <script src="{{ asset('js/login.js') }}"></script>
     <script src="{{ asset('js/register.js') }}"></script>
@@ -43,13 +43,6 @@
         <div class="alert alert-danger">
             {{ Session::get('message') }}
         </div>
-        @endif
-    </div>
-    <div>
-        @if(session('successful_message'))
-            <div class="alert alert-success">
-            {{ session('successful_message') }}
-            </div>
         @endif
     </div>
     <div class="text-center p-2">

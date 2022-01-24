@@ -1,5 +1,4 @@
-let iniciar = $("document");
-iniciar.ready(inicio);
+$("document").ready(inicio);
 
 function inicio() {
     $("#ModalReset").submit(function(){

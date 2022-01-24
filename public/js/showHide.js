@@ -1,5 +1,5 @@
 
-documento.ready(inicio);
+$("document").ready(inicio);
 
 function inicio() {
     let button = $('.ojoPassword');

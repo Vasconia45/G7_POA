@@ -21,7 +21,7 @@ class UserSessionController extends Controller
         if ($email === env('MAIL_USERNAME') && Hash::check($password, $hashedPassword->password)) {
             return view('administrator', compact('users'));
         }
-        elseif(Hash::check($password, $hashedPassword->password) && $users == true){
+        elseif(Hash::check($password, $hashedPassword->password) && $email == $hashedPassword->email){
             return view('inicio');
         }
         else{
@@ -44,7 +44,7 @@ class UserSessionController extends Controller
             'email' => 'required|email|unique:users',  
             'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
             'birth_date' => 'required',
-        ]);*/ 
+        ]);
         if(User::find($request->input('user_name'))!=true){
             $request->validate(['user_name'=>'required|max:20|unique:users']);
         }
@@ -56,25 +56,29 @@ class UserSessionController extends Controller
             'birth_date' => 'required',
         ]);
         dd($request->validate());
-        if($request->validate() == 1){
+        if($request->validate() == 1){*/
             $user = User::find($request->input('idUser'));
             $user->user_name = $request->input('user_name');
             $user->email = $request->input('email');
             if($request->input('password') != null){
                 $user->password = Hash::make($request->input('password'));
             }
-            else{
-                return "error";
-            }
 
             $user->birth_date = $request->input('birth_date');
 
         $user->save();
-        return view('landingPage')->with(['successful_message' => 'Profile updated successfully']);
+        return redirect()->route('administrator', compact('users'))->with(['succesful_message' => 'Profile updated succesfuly.']);
+            
+    }
+
+    public function delete(Request $request) {
+        $user = User::find($request->input('idUser'));
+        $users = User::Where('user_type', 'user')->get();
+        if($user==true) {
+            $user->delete();
+            return redirect()->route('administrator', compact('users'))->with(['successful_delete_message' => 'User has been deleted successfully']);
+        } else {
+            return redirect()->route('userData/{id}')->with(['error_message' => 'There has been an error.']);
         }
-        else{
-            return view('userData/{id}')->with(['error_message' => 'Has been an error.']);
-        }
-        
     }
 }

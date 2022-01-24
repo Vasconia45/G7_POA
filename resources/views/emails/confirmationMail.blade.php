@@ -57,7 +57,7 @@
                                             <input type="hidden" name="email" class="form-control icon2 rounded mt-2" placeholder=" Email" value="{{$email}}">
                                             <input type="hidden" name="password" class="form-control icon2 rounded mt-2" placeholder=" Password" value="{{$password}}">
                                             <input type="hidden" name="birth_date" class="form-control icon2 rounded mt-2" placeholder=" Birth_date" value="{{$birth_date}}">
-                                            <button type="submit" style="width: 138px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;cursor: pointer;margin-right: auto;margin-left: auto;">Confirm</button>
+                                            <button type="submit" style="width: 138px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;margin-right: auto;margin-left: auto;">Confirm</button>
                                         </form>
                                         <p style="margin:30px 0 0 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
                                             Thanks for helping us maintain your account's security.</p>
@@ -68,10 +68,10 @@
                     </tr>
                     <tr>
                         <td style="padding:30px;background:#81C92C;">
-                            <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
+                            <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;">
                                 <tr>
                                     <td style="padding:0;width:50%;" align="left">
-                                        <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;">
+                                        <p style="margin:0;font-size:14px;line-height:16px;">
                                             &copy; 2021 - YouShar3<br />
                                         </p>
                                     </td>

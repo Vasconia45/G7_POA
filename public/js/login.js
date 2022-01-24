@@ -1,6 +1,5 @@
-let documento = $("document");
 
-documento.ready(function () {
+$("document").ready(function () {
     $("#LoginModal").submit(function () {
         if ($("#PasswordLogin").val().length < 1) {
             Swal.fire({
