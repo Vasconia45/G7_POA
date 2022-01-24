@@ -67,16 +67,17 @@ class UserSessionController extends Controller
             $user->birth_date = $request->input('birth_date');
 
         $user->save();
-        return redirect()->route('administrator', compact('users'))->with(['succesful_message' => 'Profile updated succesfuly.']);
+        $users = User::Where('user_type', 'user')->get();
+        return view('administrator', compact('users'))->with(['succesful_message' => 'Profile updated succesfuly.']);
             
     }
 
     public function delete(Request $request) {
         $user = User::find($request->input('idUser'));
-        $users = User::Where('user_type', 'user')->get();
         if($user==true) {
             $user->delete();
-            return redirect()->route('administrator', compact('users'))->with(['successful_delete_message' => 'User has been deleted successfully']);
+            $users = User::Where('user_type', 'user')->get();
+            return view('administrator', compact('users'))->with(['successful_delete_message' => 'User has been deleted successfully']);
         } else {
             return redirect()->route('userData/{id}')->with(['error_message' => 'There has been an error.']);
         }

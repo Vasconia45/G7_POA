@@ -25,10 +25,19 @@
 
 <body>
     <div>
-        @if(Session::has('success'))
+        @if(Session::has('confirmation'))
         <div class="alert alert-success">
-            {{ Session::get('success') }}
+            {{ Session::get('confirmation') }}
         </div>
+        @endif
+    </div>
+    <div>
+        @if(Session::has('success'))
+        <script>
+            $(function() {
+                $('#confirmRegisterModal').modal('show');
+            });
+        </script>
         @endif
     </div>
     <div>
@@ -166,6 +175,11 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-4 col-md-2 col-2 d-flex align-items-center flex-column">
+            <h4 style="text-align: justify;">{!! trans('messages.callOfAction1')!!} <a href="{{ route('profilePage')}}">{!! trans('messages.Profile')!!}</a> {!! trans('messages.or')!!} <a href="{{ route('inicio')}}">{!! trans('messages.wall')!!}</a> {!! trans('messages.callOfAction2')!!}</h4>
+            <a href="{{ route('inicio')}}"><img src="{{ URL('storage/wall.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
+            <a href="{{ route('profilePage')}}"><img src="{{ URL('storage/profile.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
+        </div>
     </div>
     </div>
     <footer>
@@ -185,6 +199,22 @@
             @endif
         </div>
     </footer>
+
+
+    <div class="modal fade" id="confirmRegisterModal" tabindex="-1" aria-labelledby="confirmRegisterModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{!! trans('messages.congrats') !!}</h5>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #EBF6FF;">
+                    <p>{!! trans('messages.phrase') !!}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

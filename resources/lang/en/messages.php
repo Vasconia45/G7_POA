@@ -39,7 +39,13 @@ return [
     'contact' => 'youshar3sup@gmail.com',
     'exists' =>'This user already exists',
     'success' =>'User has been created succesfully.',
-    'error' => 'Error'
+    'error' => 'Error',
+    'congrats' => 'Congratulations',
+    'phrase' => 'We have sent you a message to confirm your email address. Check your mail to activate your account and start sharing with the world',
+    'callOfAction1' => 'If you want an example, check our',
+    'callOfAction2' => ' pages by clicking on the images below',
+    'wall' => 'Wall',
+    'or' => 'or'
     
 
 ];

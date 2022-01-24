@@ -1,0 +1,28 @@
+.buttonColorNav{
+    background-color: #F5851F;
+}
+.imgNav{
+    width: 25%;
+}
+.sizeCard{
+    width:100%;
+}
+.buttonColorCard{
+    background-color: #81C92C;
+}
+#fotoPerfil{
+    position: absolute;
+    width: 20%;
+    top: 48%;
+    left:5%;
+}
+.backgroundColor{
+    background-color:  #BBE4F8;
+}
+
+.addPeopleFoto{
+    width: 100%;
+}
+.addPeopleBgColor{
+    background-color: rgba(12, 11, 11, 0.767);
+}

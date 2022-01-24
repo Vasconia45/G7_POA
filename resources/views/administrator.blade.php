@@ -51,13 +51,11 @@
                     @endforeach
                 </tbody>
             </table>
+            @else
+                <p>There are no users registered.</p>
             @endif
-        </div>
-        <div class="d-flex justify-content-center align-items-center mt-5">
-            <img src="{{ asset('img/process.gif')}}">
         </div>
     </div>
 </body>
-?>
 
 </html>

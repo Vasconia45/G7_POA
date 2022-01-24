@@ -33,6 +33,10 @@ Route::get('/reset/resetFormulario', function(){
     return view('resetPassword');
 })->name('ResetFormulario');
 
+Route::get('/profile', function(){
+    return view('profile');
+})->name('profilePage');
+
 Route::post('/login', [UserSessionController::class, 'store'])->name('loginUser');
 
 Route::post('/login/logout', [UserSessionController::class], 'logout')->name('logout');

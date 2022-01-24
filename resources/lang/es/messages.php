@@ -38,7 +38,13 @@ return [
     'contact' => 'youshar3sup@gmail.com',
     'exists' =>'Este usuario ya existe',
     'success' =>'El usuario ha sido creado correctamente',
-    'error' =>'Error'
+    'error' =>'Error',
+    'congrats' => 'Felicidades',
+    'phrase' => 'Te hemos enviado un mensaje para confirmar tu dirección de correo electrónico. Revisa tu correo para activar tu cuenta y comenzar a compartir con el mundo.',
+    'callOfAction1' => 'Si quieres un ejemplo, puedes probar la pagina de',
+    'callOfAction2' => ' de la aplicacion pinchando en las imagenes',
+    'wall' => 'Muro',
+    'or' => 'o'
 
 
 ];

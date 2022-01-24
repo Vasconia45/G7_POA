@@ -82,7 +82,7 @@ class UserRegisterController extends Controller
         ]);
 
         return redirect()->route('landingPage')
-        ->with('success', trans('messages.registerMessage'));
+        ->with('confirmation', trans('messages.registerMessage'));
     }
     /**
      * Display the specified resource.
