@@ -6,34 +6,39 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Routing\UrlGenerator;
-use Illuminate\Support\Facades\URL;
 
 class UserSessionController extends Controller
 {
-    public function store(Request $request)
-    {
+
+    public function prueba(){
+
+    }
+
+    public function login(Request $request){
         $password = $request->password;
         $email = $request->email;
         $hashedPassword = User::where('email', $email)->first();
         $users = User::Where('user_type', 'user')->get();
         
         if ($email === env('MAIL_USERNAME') && Hash::check($password, $hashedPassword->password)) {
+            $request->session()->regenerate();
             return view('administrator', compact('users'));
         }
         elseif(Hash::check($password, $hashedPassword->password) && $email == $hashedPassword->email){
             return view('inicio');
         }
     }
-    public function destroy()
-    {
+    
+    public function logout(){
         auth()->logout();
         return redirect()->to('/');
     }
+
     public function edit($id) {
         $user = User::find($id);
-        return view('userData',['user' => $user]);
+        return view('userData', ['user' => $user]);
     }
+
     public function update(Request $request) {
         /*$request->validate([
             'user_name' => 'required|max:20|unique:users',

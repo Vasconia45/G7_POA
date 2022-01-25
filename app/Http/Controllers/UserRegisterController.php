@@ -37,7 +37,7 @@ class UserRegisterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function check(Request $request)
     {
         $users = DB::table('users')
             ->where('user_name', $request->user_name)
@@ -62,10 +62,8 @@ class UserRegisterController extends Controller
             $msj->subject($subject);
             $msj->to($for);
         });
-
-        return view('/emails/confirmationMail', ['request' => $request->all()]);
     }
-    public function registro(Request $request)
+    public function register(Request $request)
     {
         $request->validate([
             'user_name' => 'required|max:20|unique:users',

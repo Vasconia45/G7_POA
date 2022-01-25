@@ -54,11 +54,16 @@
         </div>
         @endif
     </div>
-    <div class="text-center p-2">
-        <h1>{!! trans('messages.welcome') !!}</h1>
+    <div class="d-flex text-center p-2">
+        <div class="col-lg-8 col-11">
+            <h1>{!! trans('messages.welcome') !!}</h1>
+        </div>
+        <div class="col-lg-4 col-1 mt-2">
+            <span><a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#map"><i class="bi bi-geo-alt-fill"></i></a></span>
+        </div>
     </div>
     <div class="row mx-auto">
-        <div class="col-lg-8 col-md-10 col-10 mx-auto mt-2">
+        <div class="col-lg-8 mt-2">
             <!--Login part-->
             <div class="col-lg-6 col-md-8 col-sm-12 login-form">
                 <form role="form" action="{{ route('loginUser')}}" method="POST" id="LoginModal">
@@ -175,15 +180,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-2 col-2 d-flex align-items-center flex-column">
-            <h4 style="text-align: justify;">{!! trans('messages.callOfAction1')!!} <a href="{{ route('profilePage')}}">{!! trans('messages.Profile')!!}</a> {!! trans('messages.or')!!} <a href="{{ route('inicio')}}">{!! trans('messages.wall')!!}</a> {!! trans('messages.callOfAction2')!!}</h4>
-            <a href="{{ route('inicio')}}"><img src="{{ URL('storage/wall.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
-            <a href="{{ route('profilePage')}}"><img src="{{ URL('storage/profile.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
+        <div class="col-lg-4 d-flex justify-content-center">
+            <div class="col-lg-12 col-10 d-flex text-center align-items-center flex-column">
+                <h4 style="text-align: justify;">{!! trans('messages.callOfAction1')!!} <a href="{{ route('profilePage')}}">{!! trans('messages.Profile')!!}</a> {!! trans('messages.or')!!} <a href="{{ route('inicio')}}">{!! trans('messages.wall')!!}</a> {!! trans('messages.callOfAction2')!!}</h4>
+                <a href="{{ route('inicio')}}"><img src="{{ URL('storage/wall.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
+                <a href="{{ route('profilePage')}}"><img src="{{ URL('storage/profile.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
+            </div>
         </div>
     </div>
-    </div>
     <footer>
-        <div class="d-flex align-self-center justify-content-center mt-5">
+        <div class="col-lg-8 d-flex align-self-center justify-content-center mt-5">
             <span><a href="#" class="text-dark"><i class="bi bi-envelope-fill"></i></a>{!! trans('messages.contact')
                 !!}</span>
             @if (config('locale.status') && count(config('locale.languages')) > 1)
@@ -211,6 +217,21 @@
                 </div>
                 <div class="modal-body" style="background-color: #EBF6FF;">
                     <p>{!! trans('messages.phrase') !!}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="map" tabindex="-1" aria-labelledby="map" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="map-container-google-1" class="z-depth-1-half map-container border" style="height: 500px">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.408873009227!2d-1.9720742342847335!3d43.326632481503786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51a54183b87fed%3A0x6b3f34b4f0c14472!2sInstituto%20Zubiri%20Manteo!5e0!3m2!1ses!2ses!4v1643123152436!5m2!1ses!2ses" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>

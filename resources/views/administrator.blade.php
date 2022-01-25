@@ -15,18 +15,18 @@
 </head>
 
 <body>
-<div>
+    <div>
         @if(session('successful_delete_message'))
-            <div class="alert alert-success">
+        <div class="alert alert-success">
             {{ session('successful_delete_message') }}
-            </div>
+        </div>
         @endif
     </div>
     <div>
         @if(session('error_message'))
-            <div class="alert alert-success">
+        <div class="alert alert-success">
             {{ session('error_message') }}
-            </div>
+        </div>
         @endif
     </div>
     <div>
@@ -36,9 +36,16 @@
         </div>
         @endif
     </div>
-    <div>
+    <div class="container">
         <div>
-            <h1>Username</h1>
+            <div class="d-flex">
+                <div class="col-11">
+                    <h1>Username</h1>
+                </div>
+                <div class="col-1">
+                    <a href="{{ route('logout')}}" class="btn btn-default border bd-dark mt-2"><i class="bi bi-box-arrow-right"></i></a>
+                </div>
+            </div>
             @if (is_countable( $users ) && count( $users ) > 0)
             <table class='table'>
                 <thead>
@@ -46,24 +53,25 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($users as $user)
-                    <form method="POST">
-                    <tr>
-                        <th>{{$user->user_name}}</th>
-                        <th>{{$user->email}}</th>
-                        <th><a href="/userData/{{ $user->id }}">Edit</a></th>
-                        <th><button type="submit" formaction="{{ route('deleteUser')}}" class="btn btn-default"><i class="bi bi-trash-fill text-dark"></i></button></th>
-                        </th>
-                    </tr>
+                    <form role="form" method="GET">
+                        {{ csrf_field() }}
+                        <tr>
+                            <th>{{$user->user_name}}</th>
+                            <th>{{$user->email}}</th>
+                            <th><a href="/userData/{{ $user->id }}">Edit</a></th>
+                            <!--<th><a href="/deleteUser/{{ $user->email }}" name="delete">Delete</a></th>-->
+                        </tr>
                     </form>
                     @endforeach
                 </tbody>
             </table>
             @else
-                <p>There are no users registered.</p>
+            <p>There are no users registered.</p>
             @endif
         </div>
     </div>

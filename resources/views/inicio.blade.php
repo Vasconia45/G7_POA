@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/estiloLanding.css" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/estiloLandingPage.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body style="background-image: URL('storage/paisaje.jpg'); background-color: #EBF6FF; background-size: cover; height: 70em; background-attachment: fixed;">
@@ -23,7 +23,7 @@
         <div class="col-lg-7 col-md-6 col-12 d-flex">
           <div class="row">
             <div class="col-lg-4 d-flex">
-              <img src="{{ URL('storage/logo.png')}}" class="rounded-circle" style="width: 60px;">
+              <img src="{{ URL('storage/img/logo.png')}}" class="rounded-circle" style="width: 60px;">
               <label class="text-dark mt-3 ml-2">YOUSHAR3</label>
             </div>
             <div class="col-lg-4 d-flex align-items-center justify-content-center">
