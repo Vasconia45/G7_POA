@@ -63,8 +63,8 @@
                         <tr>
                             <th>{{$user->user_name}}</th>
                             <th>{{$user->email}}</th>
-                            <th><a href="/userData/{{ $user->id }}">Edit</a></th>
-                            <!--<th><a href="/deleteUser/{{ $user->email }}" name="delete">Delete</a></th>-->
+                            <th><a href="/admin/{{ $user->id }}">Edit</a></th>
+                            <th><a href="{{ route('deleteUser')}}"><i class="bi bi-trash-fill text-dark"></i></a></th>
                         </tr>
                     </form>
                     @endforeach

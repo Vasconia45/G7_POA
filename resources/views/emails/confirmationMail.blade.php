@@ -34,7 +34,7 @@
             <td align="center" style="padding:0;">
                 <table role="presentation" style="width:602px;border-collapse:collapse;border: 1px solid #cccccc;border-spacing:0;text-align:left;">
                     <tr>
-
+                        <a href="https://imgbb.com/"><img src="https://i.ibb.co/xLVRbx5/Logo-Name-No-Background.png" alt="Logo-Name-No-Background" border="0" style="width: 200px;display: block;margin: auto;"></a>
                     </tr>
                     <tr>
                         <td style="padding:36px 30px 0 30px;">

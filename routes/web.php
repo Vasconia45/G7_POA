@@ -5,6 +5,8 @@ use App\Http\Controllers\ResetEmail;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\UserRegisterController;
 use App\Http\Controllers\UserSessionController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +19,10 @@ use App\Http\Controllers\UserSessionController;
 |
 */
 
+//This is the landingPage route.
 Route::get('/', function () {
     return view('landingPage');
 })->name('landingPage');
-
-Route::get('/inicio', function(){
-    return view('inicio');
-})->name('inicio');
 
 Route::get('/profile', function(){
     return view('profile');
@@ -32,25 +31,41 @@ Route::get('/profile', function(){
 
 //1.Login routes.
 
+//Route that validates the form and checks if its a user or the admin.
+Route::post('/login', [UserSessionController::class, 'login'])->name('loginUser');
+
 //Route for getting logout from any session.
 Route::get('/login/logout', [UserSessionController::class,  'logout'])->name('logout');
 
 //1.1 Admin login and admin configurations.
-Route::post('/updateUser', [UserSessionController::class, 'update'])->name('updateUser');
 
-Route::post('/deleteUser', [UserSessionController::class, 'delete'])->name('deleteUser');
+//Route that logs the admin.
+Route::get('/admin', [AdminController::class, 'list'])->name('adminController')->middleware('auth');
 
-Route::get('/userData/{id}', [UserSessionController::class, 'edit'])->name('editUser');
-
+//Route that returns the administrator view.
 Route::get('/administrator', function(){
     return view('administrator');
 })->name('administrator');
 
+//Route that returns the update view.
+Route::get('/admin/{id}', [AdminController::class, 'editUser'])->name('editUser');
+
+//Route that edits the user and returns the administrator view.
+Route::post('/updateUser', [AdminController::class, 'updateUser'])->name('updateUser');
+
+//Route thst deletes the users.
+Route::post('/deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
+
+
 //1.2 Users login.
 
-//
-Route::post('/login', [UserSessionController::class, 'login'])->name('loginUser');
+//Route that logs the users.
+Route::get('/{user}', [UserController::class, 'login'])->name('userController')->middleware('auth');
 
+//Route that returns the principal view of the user when he logs in.
+Route::get('/inicio', function(){
+    return view('inicio');
+})->name('inicio');
 
 
 //2.This the registration part, from sending the mail for the confirmation link and then the registration of the user in the database.

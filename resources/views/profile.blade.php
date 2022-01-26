@@ -110,7 +110,7 @@
                         <li class="nav-item dropdown">
                             <button class="btn buttonColorNav" data-bs-toggle="dropdown"><i
                                     class="bi bi-gear-fill"></i>Settings</button>
-                            <ul class="dropdown-menu" style="">
+                            <ul class="dropdown-menu">
                                 <a class="dropdown-item" href="#">HTML</a>
                                 <a class="dropdown-item" href="#">HTML</a>
                             </ul>

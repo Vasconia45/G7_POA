@@ -62,7 +62,7 @@
                 <ul class="dropdown-menu bg-white">
                   <li><a class="dropdown-item">{!! trans('messages.Manage') !!}</a></li>
                   <div class="dropdown-divider"></div>
-                  <li><a class="dropdown-item" href="{{ route('landingPage')}}">{!! trans('messages.Logout') !!}</a></li>
+                  <li><a class="dropdown-item" href="{{ route('logout')}}">{!! trans('messages.Logout') !!}</a></li>
                 </ul>
               </div>
             </div>

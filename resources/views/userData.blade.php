@@ -70,9 +70,6 @@
                     <div class="form-floating">
                         <button type="submit" formaction="{{ route('updateUser')}}" class="btn btn-default btn-block mt-4">Update</button>
                     </div>
-                    <div class="form-floating">
-                        <button type="submit" formaction="{{ route('deleteUser')}}" class="btn btn-default btn-block mt-4">Delete</button>
-                    </div>
                 </div>
             </form>
         </div>
