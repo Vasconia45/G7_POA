@@ -44,7 +44,21 @@ class UserRegisterController extends Controller
             ->orwhere('email', $request->email)
             ->get();
         if (count($users) <= 0) {
-            $this->confirmation($request);
+            $this->confirmationMail($request);
+            $request->validate([
+                'user_name' => 'required|max:20|unique:users',
+                'email' => 'required|email|unique:users',  
+                'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
+                'birth_date' => 'required',
+            ]);
+            User::create([
+                'user_name' => $request->user_name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'birth_date' => $request->birth_date,
+                'user_type' => 'user',
+                'verified' => false
+            ]);
             return redirect()->route('landingPage')
                 ->with('success', trans('messages.sendMail'));
         } else {
@@ -53,7 +67,7 @@ class UserRegisterController extends Controller
         }
     }
     
-    public function confirmation(Request $request)
+    public function confirmationMail(Request $request)
     {
         $subject = "Registration";
         $for = $_POST['email'];
@@ -63,24 +77,11 @@ class UserRegisterController extends Controller
             $msj->to($for);
         });
     }
-    public function register(Request $request)
-    {
-        $request->validate([
-            'user_name' => 'required|max:20|unique:users',
-            'email' => 'required|email|unique:users',  
-            'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
-            'birth_date' => 'required',
-        ]);
-        User::create([
-            'user_name' => $request->user_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'birth_date' => $request->birth_date,
-            'user_type' => 'user',
-        ]);
 
-        return redirect()->route('landingPage')
-        ->with('confirmation', trans('messages.registerMessage'));
+    public function confirmation(Request $request)
+    {
+        dd($request);
+
     }
     /**
      * Display the specified resource.

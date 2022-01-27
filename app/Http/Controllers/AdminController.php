@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    
-    public function list(Request $request){
+
+    function list(Request $request) {
         $users = User::Where('user_type', 'user')->get();
         return view('administrator', compact('users'));
     }
@@ -50,13 +50,12 @@ class AdminController extends Controller
         $user->birth_date = $request->input('birth_date');
 
         $user->save();
-        return redirect()->route('adminController')->with(['successful_message' => 'User has beenupdated correctly']);
+        return redirect()->route('adminController')->with(['successful_message' => 'User has been updated correctly']);
     }
 
-    public function eraseUser(Request $request)
+    public function deleteUser($id)
     {
-        $user = User::find($request->input('idUser'));
-        dd($user);
+        $user = User::find($id);
         if ($user == true) {
             $user->delete();
             return redirect()->route('adminController')->with(['successful_delete_message' => 'User has been deleted successfully']);
@@ -64,5 +63,5 @@ class AdminController extends Controller
             return redirect()->route('adminController')->with(['error_message' => 'There has been an error.']);
         }
     }
-    
+
 }

@@ -20,8 +20,7 @@ class UserSessionController extends Controller
             if ($request->email === env('MAIL_USERNAME')) {
                 return redirect()->route('adminController');
             } else {
-                $user_name = Auth::user()->user_name;
-                return redirect()->route('userController', $user_name);
+                return redirect()->route('userController');
             }
         }
         return back()->with(['error' => 'The email or the password is incorrect.']);

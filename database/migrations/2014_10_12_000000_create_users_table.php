@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('birth_date');
             $table->string('user_type');
+            $table->boolean('verified');
             $table->rememberToken();
             $table->timestamps();
         });

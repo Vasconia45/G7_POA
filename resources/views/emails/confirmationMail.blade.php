@@ -51,12 +51,9 @@
                                             <br><br>
                                             Could you please click the button below so we can activate your account:
                                         </p>
-                                        <form action="{{ route('confirmation')}}" method="GET">
+                                        <p>{{ $user_name}}</p>
+                                        <form role="form" action="{{ route('confirmation')}}" method="GET">
                                             {{ csrf_field() }}
-                                            <input type="hidden" name="user_name" class="form-control icon2 rounded mt-2" placeholder=" Username" value="{{$user_name}}">
-                                            <input type="hidden" name="email" class="form-control icon2 rounded mt-2" placeholder=" Email" value="{{$email}}">
-                                            <input type="hidden" name="password" class="form-control icon2 rounded mt-2" placeholder=" Password" value="{{$password}}">
-                                            <input type="hidden" name="birth_date" class="form-control icon2 rounded mt-2" placeholder=" Birth_date" value="{{$birth_date}}">
                                             <button type="submit" style="width: 138px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;margin-right: auto;margin-left: auto;">Confirm</button>
                                         </form>
                                         <p style="margin:30px 0 0 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">

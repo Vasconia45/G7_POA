@@ -40,7 +40,7 @@
         <div>
             <div class="d-flex mt-3">
                 <div class="col-1">
-                    <img src="{{ URL('storage/admin.jpg') }}" class="rounded-circle w-50">
+                    <img src="{{ URL('storage/admin.png') }}" class="rounded-circle" style="width: 40px;">
                 </div>
                 <div class="d-flex col-10 justify-content-center">
                     <div class="d-flex col-5">
@@ -66,13 +66,13 @@
                 </thead>
                 <tbody>
                     @foreach($users as $user)
-                    <form  role="form" method="POST">
-                        {{ csrf_field() }}
-                        <tr>
+                    <form action="{{ route('deleteUser', $user->id)}}" method="POST">
+                        @csrf
+                        <tr class="align-middle">
                             <th>{{$user->user_name}}</th>
                             <th>{{$user->email}}</th>
                             <th><a href="/admin/{{ $user->id }}">Edit</a></th>
-                            <th><a href="/eraseUser/{{ $user->email }}"><i class="bi bi-trash-fill text-dark"></i></a></th>
+                            <th><button type="submit" class="btn btn-default"><i class="bi bi-trash-fill text-dark"></i></button></th>
                         </tr>
                     </form>
                     @endforeach

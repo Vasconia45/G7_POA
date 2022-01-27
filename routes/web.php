@@ -58,16 +58,12 @@ Route::get('/admin/{id}', [AdminController::class, 'editUser'])->name('editUser'
 Route::post('/updateUser', [AdminController::class, 'updateUser'])->name('updateUser');
 
 //Route thst deletes the users.
-//Route::post('/deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
-
-Route::post('/eraseUser', [AdminController::class, 'eraseUser'])->name('eraseUser');
-
-
+Route::post('/admin/deleteUser/{id}', [AdminController::class, 'deleteUser'])->name('deleteUser');
 
 //1.2 Users login.
 
 //Route that logs the users.
-Route::get('/{user}', [UserController::class, 'login'])->name('userController')->middleware('auth');
+Route::get('/index', [UserController::class, 'login'])->name('userController')->middleware('auth');
 
 //Route that returns the principal view of the user when he logs in.
 Route::get('/inicio', function(){
@@ -82,7 +78,7 @@ Route::get('/inicio', function(){
 Route::post('/register', [UserRegisterController::class, 'check'])->name('registerUser');
 
 //Route to registered the user when he clicks on the confirmation button in his email.
-Route::get('/register/confirmation', [UserRegisterController::class, 'register'])->name('confirmation');
+Route::get('/register/confirmation', [UserRegisterController::class, 'confirmation'])->name('confirmation');
 
 
 
