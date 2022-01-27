@@ -53,7 +53,7 @@ class AdminController extends Controller
         return redirect()->route('adminController')->with(['successful_message' => 'User has beenupdated correctly']);
     }
 
-    public function deleteUser(Request $request)
+    public function eraseUser(Request $request)
     {
         $user = User::find($request->input('idUser'));
         dd($user);

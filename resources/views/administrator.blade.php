@@ -38,12 +38,20 @@
     </div>
     <div class="container">
         <div>
-            <div class="d-flex">
-                <div class="col-11">
-                    <h1>Username</h1>
-                </div>
+            <div class="d-flex mt-3">
                 <div class="col-1">
-                    <a href="{{ route('logout')}}" class="btn btn-default border bd-dark mt-2"><i class="bi bi-box-arrow-right"></i></a>
+                    <img src="{{ URL('storage/admin.jpg') }}" class="rounded-circle w-50">
+                </div>
+                <div class="d-flex col-10 justify-content-center">
+                    <div class="d-flex col-5">
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                        <span type="button" class="input-group-text" id="search-addon">
+                            <i class="bi bi-search"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex col-1 align-items-center">
+                    <a href="{{ route('logout')}}" class="btn btn-default border bd-dark"><i class="bi bi-box-arrow-right"></i></a>
                 </div>
             </div>
             @if (is_countable( $users ) && count( $users ) > 0)
@@ -58,13 +66,13 @@
                 </thead>
                 <tbody>
                     @foreach($users as $user)
-                    <form role="form" method="GET">
+                    <form  role="form" method="POST">
                         {{ csrf_field() }}
                         <tr>
                             <th>{{$user->user_name}}</th>
                             <th>{{$user->email}}</th>
                             <th><a href="/admin/{{ $user->id }}">Edit</a></th>
-                            <th><a href="{{ route('deleteUser')}}"><i class="bi bi-trash-fill text-dark"></i></a></th>
+                            <th><a href="/eraseUser/{{ $user->email }}"><i class="bi bi-trash-fill text-dark"></i></a></th>
                         </tr>
                     </form>
                     @endforeach

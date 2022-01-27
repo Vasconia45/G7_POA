@@ -24,6 +24,7 @@ Route::get('/', function () {
     return view('landingPage');
 })->name('landingPage');
 
+//This is the profilePage route.
 Route::get('/profile', function(){
     return view('profile');
 })->name('profilePage');
@@ -31,11 +32,14 @@ Route::get('/profile', function(){
 
 //1.Login routes.
 
+
 //Route that validates the form and checks if its a user or the admin.
 Route::post('/login', [UserSessionController::class, 'login'])->name('loginUser');
 
 //Route for getting logout from any session.
 Route::get('/login/logout', [UserSessionController::class,  'logout'])->name('logout');
+
+
 
 //1.1 Admin login and admin configurations.
 
@@ -54,7 +58,10 @@ Route::get('/admin/{id}', [AdminController::class, 'editUser'])->name('editUser'
 Route::post('/updateUser', [AdminController::class, 'updateUser'])->name('updateUser');
 
 //Route thst deletes the users.
-Route::post('/deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
+//Route::post('/deleteUser', [AdminController::class, 'deleteUser'])->name('deleteUser');
+
+Route::post('/eraseUser', [AdminController::class, 'eraseUser'])->name('eraseUser');
+
 
 
 //1.2 Users login.
@@ -68,6 +75,7 @@ Route::get('/inicio', function(){
 })->name('inicio');
 
 
+
 //2.This the registration part, from sending the mail for the confirmation link and then the registration of the user in the database.
 
 //Route to check if the data inserted in the registration form allready exists on the Db or doesn't exists.
@@ -77,21 +85,24 @@ Route::post('/register', [UserRegisterController::class, 'check'])->name('regist
 Route::get('/register/confirmation', [UserRegisterController::class, 'register'])->name('confirmation');
 
 
+
 //3.This part is everything from the forgotPassword event, from sending the message to the resetPassword view.
 
 //Route for sending the ForgotPassword mail.
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
 //Route for the view of the resetPassword form.
-Route::get('/reset/resetFormulario', function(){
+Route::get('/reset/resetForm', function(){
     return view('resetPassword');
 })->name('ResetFormulario');
+
 
 
 //4.This part is for the language.
 
 //Route to change the languages of the Pages.
 Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.swap');
+
 
 
 /*Auth::routes();
