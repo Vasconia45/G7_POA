@@ -30,7 +30,7 @@
         @endif
     </div>
     <div class="row mx-auto">
-        <div class="login-form col-lg-4 col-md-4 col-12 mx-auto">
+        <div class="login-form col-lg-4 col-md-6 col-sm-8 col-10 mx-auto">
             <form role="form" method="POST" id="RegisterModal">
                 {{ csrf_field() }}
                 <div class="form-group">

@@ -48,6 +48,13 @@
         @endif
     </div>
     <div>
+        @if(Session::has('verification_error'))
+        <div class="alert alert-danger">
+            {{ Session::get('verification_error') }}
+        </div>
+        @endif
+    </div>
+    <div>
         @if(Session::has('message'))
         <div class="alert alert-danger">
             {{ Session::get('message') }}

@@ -16,7 +16,7 @@ class CreateSupportTable extends Migration
         Schema::create('support', function (Blueprint $table) {
             $table->increments('id', true);
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('support_message');
             $table->timestamps();
         });

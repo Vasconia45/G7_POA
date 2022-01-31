@@ -77,7 +77,7 @@ Route::get('/inicio', function(){
 //Route to check if the data inserted in the registration form allready exists on the Db or doesn't exists.
 Route::post('/register', [UserRegisterController::class, 'check'])->name('registerUser');
 
-//Route to registered the user when he clicks on the confirmation button in his email.
+//Route to change the verified attribute in the DB for the user.
 Route::get('/register/confirmation', [UserRegisterController::class, 'confirmation'])->name('confirmation');
 
 
@@ -86,6 +86,8 @@ Route::get('/register/confirmation', [UserRegisterController::class, 'confirmati
 
 //Route for sending the ForgotPassword mail.
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
+
+Route::post('/reset/resetForm/update', [UserController::class, 'reset'])->name('resetUpdatePassword');
 
 //Route for the view of the resetPassword form.
 Route::get('/reset/resetForm', function(){

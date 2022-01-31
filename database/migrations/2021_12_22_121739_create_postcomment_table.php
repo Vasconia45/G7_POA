@@ -17,8 +17,8 @@ class CreatePostcommentTable extends Migration
             $table->increments('id', true);
             $table->integer('post_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('post')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('comment');
             $table->datetime('post_comment_date');
             $table->timestamps();

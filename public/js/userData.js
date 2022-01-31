@@ -10,6 +10,13 @@ $('#document').ready(function () {
                 text: 'Is neccessary to confirm your password please.',
             })
             return false;
+        }else if($("#Passwd2").val() != $("#Passwd1").val()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'The confirmation password is not correct, please check it.',
+              })
+            return false;
         }
     });
 });

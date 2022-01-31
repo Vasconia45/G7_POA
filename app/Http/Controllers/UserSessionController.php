@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserSessionController extends Controller
 {
@@ -16,14 +17,15 @@ class UserSessionController extends Controller
             'password' => ['required'],
         ]);
 
+        $user = User::Where('email', $request->email)->first();
         if (Auth::attempt($credentials)) {
             if ($request->email === env('MAIL_USERNAME')) {
                 return redirect()->route('adminController');
             } else {
-                return redirect()->route('userController');
+                return redirect()->route('userController', compact('user'));
             }
         }
-        return back()->with(['error' => 'The email or the password is incorrect.']);
+        return back()->with(['error' => 'The email or the password are incorrect.']);
     }
 
     public function logout(Request $request)

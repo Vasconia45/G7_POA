@@ -42,7 +42,7 @@
                                 <tr>
                                     <td style="padding:0 0 36px 0;color:#153643;">
                                         <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">
-                                            Welcome to YouShar3</h1>
+                                            Welcome {{$user_name}}</h1>
                                         <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
                                             Thank you for joining the YouShar3 family, we are glad to have you with us.
                                             We are anxious to start teaching you and helping you to
@@ -51,9 +51,9 @@
                                             <br><br>
                                             Could you please click the button below so we can activate your account:
                                         </p>
-                                        <p>{{ $user_name}}</p>
                                         <form role="form" action="{{ route('confirmation')}}" method="GET">
-                                            {{ csrf_field() }}
+                                            @csrf
+                                            <input type="hidden" name="user_name" value="{{$user_name}}"/>
                                             <button type="submit" style="width: 138px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;margin-right: auto;margin-left: auto;">Confirm</button>
                                         </form>
                                         <p style="margin:30px 0 0 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">

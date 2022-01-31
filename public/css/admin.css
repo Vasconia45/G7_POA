@@ -1,9 +1,11 @@
 body{
-    
+    background-image: url('/storage/matrix.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .login-form {
-    margin: 30px auto;
+    margin: 80px auto;
 }
 .login-form form {
     color: #424242;

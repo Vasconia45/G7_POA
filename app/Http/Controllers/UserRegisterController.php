@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Session;
 
 class UserRegisterController extends Controller
 {
@@ -80,7 +79,11 @@ class UserRegisterController extends Controller
 
     public function confirmation(Request $request)
     {
-        dd($request);
+        $user = User::Where('user_name', $request->user_name)->first();
+        $user->verified = true;
+        $user->save();
+        return redirect()->route('landingPage')
+        ->with(['confirmation' => 'The confirmation has been completed succesfully']);
 
     }
     /**

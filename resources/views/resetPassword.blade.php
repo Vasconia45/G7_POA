@@ -22,7 +22,7 @@
 
 <body>
     <div class="col-lg-6 col-md-8 col-sm-12 login-form">
-        <form role="form" action="{{ route('loginUser')}}" method="POST" id="LoginModal" class="mt-5">
+        <form role="form" action="{{ route('resetUpdatePassword')}}" method="POST" id="LoginModal" class="mt-5">
             {{ csrf_field() }}
             <div class="form-group">
                 <div class="form-floating">

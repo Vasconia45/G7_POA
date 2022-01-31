@@ -22,24 +22,6 @@ class AdminController extends Controller
 
     public function updateUser(Request $request)
     {
-        /*$request->validate([
-        'user_name' => 'required|max:20|unique:users',
-        'email' => 'required|email|unique:users',
-        'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
-        'birth_date' => 'required',
-        ]);
-        if(User::find($request->input('user_name'))!=true){
-        $request->validate(['user_name'=>'required|max:20|unique:users']);
-        }
-        if(User::find($request->input('email'))!=true){
-        $request->validate(['email' => 'required|email|unique:users']);
-        }
-        $request->validate([
-        'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
-        'birth_date' => 'required',
-        ]);
-        dd($request->validate());
-        if($request->validate() == 1){*/
         $user = User::find($request->input('idUser'));
         $user->user_name = $request->input('user_name');
         $user->email = $request->input('email');

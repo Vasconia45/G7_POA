@@ -12,6 +12,9 @@
     <!--CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--JS-->
+    <script src="{{asset('jquery-3.6.0.js')}}"></script>
+    <script src="{{ asset('js/admin.js') }}"></script>
 </head>
 
 <body>
@@ -44,8 +47,8 @@
                 </div>
                 <div class="d-flex col-10 justify-content-center">
                     <div class="d-flex col-5">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <span type="button" class="input-group-text" id="search-addon">
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search-input"/>
+                        <span type="button" class="input-group-text" id="search-btn">
                             <i class="bi bi-search"></i>
                         </span>
                     </div>
@@ -65,17 +68,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                <form method="POST" id="usersForm">
+                {{ csrf_field() }}
                     @foreach($users as $user)
-                    <form action="{{ route('deleteUser', $user->id)}}" method="POST">
-                        @csrf
-                        <tr class="align-middle">
+                        <tr class="align-middle dbUsers">
                             <th>{{$user->user_name}}</th>
                             <th>{{$user->email}}</th>
                             <th><a href="/admin/{{ $user->id }}">Edit</a></th>
-                            <th><button type="submit" class="btn btn-default"><i class="bi bi-trash-fill text-dark"></i></button></th>
+                            <th><button formaction="{{ route('deleteUser', $user->id)}}" type="submit" class="btn btn-default"><i class="bi bi-trash-fill text-dark"></i></button></th>
                         </tr>
-                    </form>
                     @endforeach
+                    </form>
                 </tbody>
             </table>
             @else
