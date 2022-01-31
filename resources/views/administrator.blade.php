@@ -19,15 +19,8 @@
 
 <body>
     <div>
-        @if(session('successful_delete_message'))
-        <div class="alert alert-success">
-            {{ session('successful_delete_message') }}
-        </div>
-        @endif
-    </div>
-    <div>
         @if(session('error_message'))
-        <div class="alert alert-success">
+        <div class="alert alert-danger">
             {{ session('error_message') }}
         </div>
         @endif

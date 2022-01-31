@@ -40,7 +40,7 @@ class AdminController extends Controller
         $user = User::find($id);
         if ($user == true) {
             $user->delete();
-            return redirect()->route('adminController')->with(['successful_delete_message' => 'User has been deleted successfully']);
+            return redirect()->route('adminController')->with(['successful_message' => 'User has been deleted successfully']);
         } else {
             return redirect()->route('adminController')->with(['error_message' => 'There has been an error.']);
         }

@@ -25,13 +25,6 @@
 
 <body>
     <div>
-        @if(Session::has('confirmation'))
-        <div class="alert alert-success">
-            {{ Session::get('confirmation') }}
-        </div>
-        @endif
-    </div>
-    <div>
         @if(Session::has('success'))
         <script>
             $(function() {
@@ -48,16 +41,9 @@
         @endif
     </div>
     <div>
-        @if(Session::has('verification_error'))
-        <div class="alert alert-danger">
-            {{ Session::get('verification_error') }}
-        </div>
-        @endif
-    </div>
-    <div>
-        @if(Session::has('message'))
-        <div class="alert alert-danger">
-            {{ Session::get('message') }}
+        @if(Session::has('confirmation'))
+        <div class="alert alert-success">
+            {{ Session::get('confirmation') }}
         </div>
         @endif
     </div>

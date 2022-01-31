@@ -13,7 +13,7 @@ class UserController extends Controller
             return redirect()->route('inicio');
         }
         else{
-            return back()->with(['verification_error', 'You have to confirm your account, check your email.']);
+            return back()->with(['error' => 'You have to confirm your account, check your email.']);
         }
     }
 
