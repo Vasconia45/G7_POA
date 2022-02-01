@@ -17,6 +17,14 @@ class ResetEmail extends Controller
             $msj->to($for);
         });
         return redirect()->back()
-        ->with('success',trans('messages.sendMail'));
+        ->with('reset',trans('messages.sendMail'));
+    }
+
+    public function return(Request $request){
+        dd($request);
+    }
+
+    public function reset(Request $request){
+
     }
 }

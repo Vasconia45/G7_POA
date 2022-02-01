@@ -34,6 +34,15 @@
         @endif
     </div>
     <div>
+        @if(Session::has('reset'))
+        <script>
+            $(function() {
+                $('#ResetPasswModal').modal('show');
+            });
+        </script>
+        @endif
+    </div>
+    <div>
         @if(Session::has('error'))
         <div class="alert alert-danger">
             {{ Session::get('error') }}
@@ -210,6 +219,21 @@
                 </div>
                 <div class="modal-body" style="background-color: #EBF6FF;">
                     <p>{!! trans('messages.phrase') !!}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="ResetPasswModal" tabindex="-1" aria-labelledby="ResetPasswModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="PasswordModal">{!! trans('messages.congrats') !!}</h5>
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #EBF6FF;">
+                    <p>We have send you an email, to reset your password. Please check your email account and follow the instructions to reset your password correctly.</p>
                 </div>
             </div>
         </div>

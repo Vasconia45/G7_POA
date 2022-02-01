@@ -32,7 +32,7 @@
       <td align="center" style="padding:0;">
         <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
           <tr>
-          <a href="https://imgbb.com/"><img src="https://i.ibb.co/xLVRbx5/Logo-Name-No-Background.png" alt="Logo-Name-No-Background" border="0" style="width: 200px;display: block;margin: auto;"></a>
+            <a href="https://imgbb.com/"><img src="https://i.ibb.co/xLVRbx5/Logo-Name-No-Background.png" alt="Logo-Name-No-Background" border="0" style="width: 200px;display: block;margin: auto;"></a>
           </tr>
           <tr>
             <td style="padding:36px 30px 0 30px;">
@@ -45,8 +45,12 @@
                       Use the link below to set up a new password for your account. If you did not
                       request to reset your password, ignore this email and the link will expire
                       on its own.</p>
-                    <a href="{{ route('ResetFormulario') }}" style="width: 138px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;cursor: pointer;margin-right: auto;margin-left: auto;">Set
-                      new password</a>
+                    <form role="form" action="{{ route('resetForm') }}" method="POST">
+                    {{ csrf_field() }}
+                      <input type="hidden" name="email" value="{{$email}}" />
+                      <button type="submit" style="width: 138px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;cursor: pointer;margin-right: auto;margin-left: auto;">Set
+                      new password</button>
+                    </form>
                     <p style="margin:30px 0 0 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Thanks for helping us maintain your account's security.</p>
                   </td>
                 </tr>

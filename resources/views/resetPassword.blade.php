@@ -23,7 +23,7 @@
 <body>
     <div class="col-lg-6 col-md-8 col-sm-12 login-form">
         <form role="form" action="{{ route('resetUpdatePassword')}}" method="POST" id="LoginModal" class="mt-5">
-            {{ csrf_field() }}
+            @csrf
             <div class="form-group">
                 <div class="form-floating">
                     <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
@@ -38,8 +38,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-default btn-block mt-2">{!! trans('messages.login')
-                    !!}</button>
+                <button type="submit" class="btn btn-default btn-block mt-2">Save</button>
             </div>
         </form>
     </div>
