@@ -1,8 +1,7 @@
 $('#document').ready(function () {
 
 
-    $("#RegisterModal").submit(function () {
-        console.log("ok");
+    $("#userDataModal").submit(function () {
         if ($("#Passwd1").val().length != 0 && $("#Passwd2").val().length < 1) {
             Swal.fire({
                 icon: 'warning',

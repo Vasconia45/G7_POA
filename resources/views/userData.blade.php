@@ -31,7 +31,7 @@
     </div>
     <div class="row mx-auto">
         <div class="login-form col-lg-4 col-md-6 col-sm-8 col-10 mx-auto">
-            <form role="form" method="POST" id="RegisterModal">
+            <form role="form" method="POST" id="userDataModal">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div class="form-floating">

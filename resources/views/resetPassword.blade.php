@@ -18,25 +18,26 @@
     <script src="{{asset('jquery-3.6.0.js')}}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/showHide.js') }}"></script>
+    <script src="{{ asset('js/resetForm.js') }}"></script>
 </head>
 
 <body>
     <div class="col-lg-6 col-md-8 col-sm-12 login-form">
-        <form role="form" action="{{ route('resetUpdatePassword')}}" method="POST" id="LoginModal" class="mt-5">
+        <form role="form" action="{{ route('resetUpdatePassword')}}" method="POST" id="ResetPasswordModal" class="mt-5">
             @csrf
             <div class="form-group">
                 <div class="form-floating">
-                    <input type="text" id="email" name="email" class="form-control icon rounded mt-2" value placeholder=" Email">
-                    <label for="email"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
+                    <input type="text" id="emailResetForm" name="email" class="form-control icon rounded mt-2" value placeholder=" Email">
+                    <label for="emailResetForm"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
-                    <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>New password</label>
+                    <input type="password" id="PasswordReset" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                    <label for="PasswordReset"><i class="bi bi-lock-fill"></i>New password</label>
                     <span class="bi bi-eye-fill ojoPassword"></span>
                 </div>
                 <div class="form-floating">
-                    <input type="password" id="Passwd2Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
-                    <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
+                    <input type="password" id="PasswordReset2" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
+                    <label for="PasswordReset2"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
                         !!}</label>
                     <span class="bi bi-eye-fill ojoPassword"></span>
                 </div>
