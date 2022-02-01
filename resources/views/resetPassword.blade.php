@@ -26,6 +26,10 @@
             @csrf
             <div class="form-group">
                 <div class="form-floating">
+                    <input type="text" id="email" name="email" class="form-control icon rounded mt-2" value placeholder=" Email">
+                    <label for="email"><i class="bi bi-envelope-fill"></i>{!! trans('messages.mail') !!}</label>
+                </div>
+                <div class="form-floating">
                     <input type="password" id="PasswordLogin" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
                     <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>New password</label>
                     <span class="bi bi-eye-fill ojoPassword"></span>
@@ -34,7 +38,7 @@
                     <input type="password" id="Passwd2Register" name="password" class="form-control icon2 rounded mt-2" placeholder="Password">
                     <label for="PasswordLogin"><i class="bi bi-lock-fill"></i>{!! trans('messages.confirm')
                         !!}</label>
-                        <span class="bi bi-eye-fill ojoPassword"></span>
+                    <span class="bi bi-eye-fill ojoPassword"></span>
                 </div>
             </div>
             <div class="form-group">

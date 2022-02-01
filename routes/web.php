@@ -87,12 +87,13 @@ Route::get('/register/confirmation', [UserRegisterController::class, 'confirmati
 //Route for sending the ForgotPassword mail.
 Route::post('/reset', [ResetEmail::class, 'send'])->name('resetMail');
 
-Route::post('/reset/resetTest', [ResetEmail::class, 'return'])->name('resetForm');
+Route::get('/reset/resetForm', [ResetEmail::class, 'return'])->name('resetForm');
 
-Route::post('/reset/resetForm/update', [UserController::class, 'reset'])->name('resetUpdatePassword');
+//Route to update the password and save it.
+Route::post('/reset/resetForm/update', [ResetEmail::class, 'reset'])->name('resetUpdatePassword');
 
 //Route for the view of the resetPassword form.
-Route::get('/reset/resetForm', function(){
+Route::get('/reset/resetForm/update', function(){
     return view('resetPassword');
 })->name('ResetFormulario');
 

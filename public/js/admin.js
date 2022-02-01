@@ -11,10 +11,10 @@ function search(){
     users.each(function(){
         let first = $(this).children().eq(0).text().toLowerCase();
         if(first.startsWith(text) && text != ""){
-            $(this).addClass('bg-danger');
+            $(this).css('background', '#81C92C');
         }
         else if(first.startsWith(text) == false || text.length == 0 ){
-            $(this).removeClass('bg-danger');
+            $(this).css('background', '');
         }
     })
 }

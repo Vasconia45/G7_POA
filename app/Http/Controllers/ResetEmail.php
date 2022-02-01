@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ResetEmail extends Controller
 {
@@ -20,11 +21,15 @@ class ResetEmail extends Controller
         ->with('reset',trans('messages.sendMail'));
     }
 
-    public function return(Request $request){
-        dd($request);
+    public function return(){
+        return redirect()->route('ResetFormulario');
     }
 
     public function reset(Request $request){
-
+        $user = User::Where('email', $request->email)->first();
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->route('landingPage')
+        ->with(['confirmation' => 'Your password has been modified correctly.']);
     }
 }
