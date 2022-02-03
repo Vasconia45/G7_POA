@@ -47,7 +47,7 @@
                       on its own.</p>
                     <form role="form" action="{{ route('resetForm') }}" method="GET">
                       @csrf
-                      <button type="submit" style="width: 138px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;cursor: pointer;margin-right: auto;margin-left: auto;">Set
+                      <button type="submit" style="width: 200px;background-color: #81C92C;color: white;border: none;padding: 15px 32px;text-decoration: none;display: block;font-size: 16px;cursor: pointer;margin-right: auto;margin-left: auto;">Set
                         new password</button>
                     </form>
                     <p style="margin:30px 0 0 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Thanks for helping us maintain your account's security.</p>

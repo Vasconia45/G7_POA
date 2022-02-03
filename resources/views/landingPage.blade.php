@@ -21,6 +21,7 @@
     <script src="{{ asset('js/register.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/showHide.js') }}"></script>
+    <script src="{{ asset('js/weather.js') }}"></script>
 </head>
 
 <body>
@@ -57,11 +58,16 @@
         @endif
     </div>
     <div class="d-flex text-center p-2">
-        <div class="col-lg-8 col-11">
+        <div class="col-lg-8 col-10">
             <h1>{!! trans('messages.welcome') !!}</h1>
         </div>
-        <div class="col-lg-4 col-1 mt-2">
-            <span><a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#map"><i class="bi bi-geo-alt-fill"></i></a></span>
+        <div class="d-flex col-lg-4 col-2 mt-2 justify-content-center">
+            <div class="col-lg-1 col-4">
+                <span><a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#map"><i class="bi bi-geo-alt-fill"></i></a></span>
+            </div>
+            <div class="col-lg-1 col-4">
+                <span><a href="#" id="weatherButton" class="text-dark" data-bs-toggle="modal" data-bs-target="#weather"><i class="bi bi-brightness-alt-high-fill"></i></a></span>
+            </div>
         </div>
     </div>
     <div class="row mx-auto">
@@ -184,8 +190,8 @@
         </div>
         <div class="col-lg-4 d-flex justify-content-center">
             <div class="col-lg-12 col-10 d-flex text-center align-items-center flex-column">
-                <h4 style="text-align: justify;">{!! trans('messages.callOfAction1')!!} <a href="{{ route('profilePage')}}">{!! trans('messages.Profile')!!}</a> {!! trans('messages.or')!!} <a href="{{ route('inicio')}}">{!! trans('messages.wall')!!}</a> {!! trans('messages.callOfAction2')!!}</h4>
-                <a href="{{ route('inicio')}}"><img src="{{ URL('storage/wall.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
+                <h4 style="text-align: justify;">{!! trans('messages.callOfAction1')!!} <a href=" {{ route('wall') }} ">{!! trans('messages.wall')!!}</a> {!! trans('messages.or')!!} <a href="{{ route('profilePage')}}">{!! trans('messages.Profile')!!}</a> {!! trans('messages.callOfAction2')!!}</h4>
+                <a href=" {{ route('wall') }}"><img src="{{ URL('storage/wall.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
                 <a href="{{ route('profilePage')}}"><img src="{{ URL('storage/profile.png') }}" style="width: 100%; padding: 10px;background-color: #EBF6FF;"></a>
             </div>
         </div>
@@ -207,6 +213,26 @@
             @endif
         </div>
     </footer>
+
+    <div class="modal fade" id="weather" tabindex="-1" aria-labelledby="map" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Check the weather in the Vasc Country cities</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <select id="select"></select>
+                    <div id="info">
+                        <h6 id="tmpMax"></h6>
+                        <h6 id="tmpMin"></h6>
+                        <img id="imgWeather" src="">
+                        <p id="description"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <div class="modal fade" id="confirmRegisterModal" tabindex="-1" aria-labelledby="confirmRegisterModal" aria-hidden="true">

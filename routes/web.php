@@ -29,6 +29,9 @@ Route::get('/profile', function(){
     return view('profile');
 })->name('profilePage');
 
+Route::get('/wall', function(){
+    return view('wall');
+})->name('wall');
 
 //1.Login routes.
 
@@ -69,6 +72,15 @@ Route::get('/index', [UserController::class, 'login'])->name('userController')->
 Route::get('/inicio', function(){
     return view('inicio');
 })->name('inicio');
+
+
+
+Route::get('/userDataCli/{user}', [UserController::class, 'editcli'])->name('editUserCli');
+//call to the updatecli function of the UserSessionController controller with the name updateUserCli
+Route::post('/updateUserCli', [UserController::class, 'updatecli'])->name('updateUserCli');
+//call to the deletecli function of the UserSessionController controller with the name deleteUserCli
+Route::post('/deleteUserCli', [UserController::class, 'deletecli'])->name('deleteUserCli');
+Route::get('/back', [UserController::class, 'back'])->name('backInicio');
 
 
 

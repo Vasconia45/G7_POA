@@ -1,255 +1,358 @@
-<!DOCTYPE html>
 <html>
-
-<head>
-    <title>ProfilePage</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link href="{{ asset('/css/css.css') }}" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-    <div class="container-fluid backgroundColor">
-
-
-        <!--Navbar-->
-        <div class="row">
-            <nav class="navbar navbar-expand-md navbar-light backgroundColor fixed">
-                <div class="col-9">
-                    <div class="row align-items-center">
-                        <div class="col-1">
-                            <button type="button" class="btn buttonColorNav" data-bs-toggle="modal"
-                                data-bs-target="#addPeopleModal"><i class="bi bi-person-plus-fill"></i></button>
-
-                            <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                aria-labelledby="staticBackdropLabel" aria-hidden="true" id="addPeopleModal">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5>Users from YouShar3</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body p-3">
-                                            <div class="row align-items-center addPeopleBgColor rounded text-white p-1">
-                                                <div class="col-2">
-                                                    <img src="{{ URL('storage/img/fotoperfil.jfif') }}" class="rounded-circle addPeopleFoto">
-                                                </div>
-                                                <div class="col-8">
-                                                    <span>@Pepe</span>
-                                                    <span>|</span>
-                                                    <label>Se registra en tu zona</label>
-                                                </div>
-                                                <div class="col-1">
-                                                    <button type="button" class="btn buttonColorNav"><i
-                                                            class="bi bi-plus-lg"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <img src="{{ URL('storage/img/logo.png')}}" class="imgNav">
-                            <span>YouShar3</span>
-                        </div>
-                    </div>
+    <head>
+        <title>Profile</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="{{ asset('css/profile.css') }}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+    <div class="container">
+    <div id="content" class="content p-0">
+        <div class="profile-header">
+            <div class="profile-header-cover"></div>
+    
+            <div class="profile-header-content">
+                <div class="profile-header-img">
+                    <img src="img/fotoperfil.jfif" alt="" />
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="col-3 collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="col-10 navbar-nav justify-content-around">
-                        <li class="nav-item dropdown">
-                            <button type="button" class="btn buttonColorNav" data-bs-toggle="modal" data-bs-target="#test"><i
-                                    class="bi bi-chat-dots-fill"></i></button>
-
-                                <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                aria-labelledby="staticBackdropLabel" aria-hidden="true" id="test">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5>Users from YouShar3</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body p-3">
-                                            <marquee scrollamount="10" direction="right" width="100%">
-                                                <img src="{{ URL('storage/img/logo.gif') }}" class="w-50">
-                                            </marquee>
-                                        </div>
+    
+                <div class="profile-header-info">
+                    <h4 class="m-t-sm">User Name</h4>
+                    <p class="m-b-sm">Description</p>
+                    <a href="#" class="btn btn-xs mb-4 text-white" style="background-color: #81C92C;">{!! trans('messages.edit') !!}</a>
+                </div>
+            </div>
+    
+            <ul class="profile-header-tab nav nav-tabs">
+                <li class="nav-item"><a href="#profile-posts" class="nav-link" data-bs-toggle="tab">{!! trans('messages.posts') !!}</a></li>
+                <li class="nav-item"><a href="#profile-photos" class="nav-link" data-bs-toggle="tab">{!! trans('messages.photos') !!}</a></li>
+                <li class="nav-item"><a href="#profile-videos" class="nav-link active" data-bs-toggle="tab">{!! trans('messages.videos') !!}</a></li>
+            </ul>
+        </div>
+    
+        <div class="profile-container">
+            <div class="row row-space-20">
+                <div class="col-md-8">
+                    <div class="tab-content p-0">
+                        <div class="tab-pane active" id="profile-videos">
+                            <div class="m-b-10"><b>{!! trans('messages.videos') !!} (15)</b></div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-8">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3Kf-FlECN7M?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/izsjRpcgfmk?showinfo=0"></iframe>
+                                    </div>
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/j876xgnTVUg?showinfo=0"></iframe>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <button type="button" class="btn buttonColorNav" data-bs-toggle="dropdown"><i
-                                    class="bi bi-bell-fill"></i></button>
-                            <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="#">HTML</a>
-                                <a class="dropdown-item" href="#">HTML</a>
-                            </ul>
-                        </li>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/wUqH_5memWY?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/wXmu-EYAmKU?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xS1DghfzuMc?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v3ZkCLUFrys?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/toPm-L7Ib44?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qD8OnPC1fLI?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Guo7gR0XyaU?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ADfIlLfs5Bk?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/8Wg1MYjOguI?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/LbpHB9wbDhY?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oVWBFkaXMyw?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div class="embed-responsive embed-responsive-16by9 m-b-2">
+                                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/90PRvlhOLSk?showinfo=0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
 
-                        <li class="nav-item dropdown">
-                            <button class="btn buttonColorNav" data-bs-toggle="dropdown"><i
-                                    class="bi bi-gear-fill"></i>Settings</button>
-                            <ul class="dropdown-menu">
-                                <a class="dropdown-item" href="#">HTML</a>
-                                <a class="dropdown-item" href="#">HTML</a>
-                            </ul>
+                   
+                        <div class="tab-pane fade" id="profile-photos">
+                            <div class="m-b-10"><b>{!! trans('messages.photos') !!} (15)</b></div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-8">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row row-space-2">
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2">
+                                    </div>
+                                </div>
+    
+                                <div class="col-sm-4">
+                                    <div>
+                                       <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="m-b-2"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                    
+                        <div class="tab-pane fade" id="profile-posts">
+                            <div class="m-b-10"><b>{!! trans('messages.posts') !!} (5)</b></div>
+                                <div class="col-12">
+                                        <div>
+                                            <textarea style="width: 100%;" class="m-b-2" readonly>A real man ain't gonna hurt you, becuase that shit gonna hurt him.</textarea>
+                                        </div>
+                                </div>
+
+                                <div class="col-12">
+                                        <div>
+                                            <textarea style="width: 100%;" class="m-b-2" readonly>A real man ain't gonna hurt you, becuase that shit gonna hurt him.</textarea>
+                                        </div>
+                                </div>
+
+                                <div class="col-12">
+                                        <div>
+                                            <textarea style="width: 100%;" class="m-b-2" readonly>A real man ain't gonna hurt you, becuase that shit gonna hurt him.</textarea>
+                                        </div>
+                                </div>
+
+                                <div class="col-12">
+                                        <div>
+                                            <textarea style="width: 100%;" class="m-b-2" readonly>A real man ain't gonna hurt you, becuase that shit gonna hurt him.</textarea>
+                                        </div>
+                                </div>
+
+                                <div class="col-12">
+                                        <div>
+                                            <textarea style="width: 100%;" class="m-b-2" readonly>A real man ain't gonna hurt you, becuase that shit gonna hurt him.</textarea>
+                                        </div>
+                                </div>
+                           
+                        </div>
+                   
+                    </div>
+
+                </div>
+    
+                <div class="col-md-4 hidden-xs hidden-sm">
+                    <ul class="profile-info-list">
+    
+                        <li class="title">{!! trans('messages.friends') !!} (9)</li>
+                        <li class="img-list">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar2.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar4.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar5.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar7.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar8.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar1.png"/></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#friendModal" class="m-b-5"><img src="https://bootdey.com/img/Content/avatar/avatar2.png"/></a>
                         </li>
                     </ul>
-                </div>
-            </nav>
-        </div>
-
-
-        <!--Bloque1-->
-        <div class="row mt-3">
-
-
-            <!--Bloque del Perfil del Usuario-->
-            <div class="col-6">
-                <div class="col-10 card sizeCard">
-                    <img class="card-img-top" src="{{ URL('storage/img/p.jpg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="col-4 ms-4 text-end">
-                            Pepe@home
-                        </div>
-                        <img src="{{ URl('storage/img/fotoperfil.jfif') }}" class="rounded-circle" id="fotoPerfil">
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <div class="col-8 d-flex justify-content-between">
-                            <a href="#" class="btn buttonColorCard">Friends</a>
-                            <a href="#" class="btn buttonColorCard">Photos</a>
-                            <a href="#" class="btn buttonColorCard">Videos</a>
-                        </div>
+                    <div class="dropdown ml-4 mt-2">
+                        <button type="button" class="btn dropdown-toggle text-white align-items-center justify-content-center ml-lg-2" data-bs-toggle="dropdown" style="background-color: #81C92C;"><i class="bi bi-gear-wide"></i> {!! trans('messages.Settings') !!}</button>
+                        <ul class="dropdown-menu bg-white">
+                            <li><a class="dropdown-item">{!! trans('messages.Account') !!}</a></li>
+                            <div class="dropdown-divider"></div>
+                            <li><a class="dropdown-item" href="{{ route('landingPage')}}">{!! trans('messages.Logout') !!}</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-
-            <!--Bloque Galeria de Fotos-->
-            <div class="col-6">
-
-                <div class="row p-3">
-                    <div class="col-6  mb-4">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalImage1">
-                            <img class="w-100 mb-4 rounded" src="{{ URL('storage/img/galeriaFotos/1.jpg') }}">
-                        </a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalImage2">
-                            <iframe class="w-100" src="https://www.youtube.com/embed/0yZcDeVsj_Y"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalImage3">
-                            <img class="w-100 mb-4 rounded" src="{{ URL('storage/img/galeriaFotos/3.jpg') }}">
-                        </a>
-                    </div>
-
-                    <div class="col-6 mb-4">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalImage4">
-                            <img class="w-100 mb-4 rounded" src="{{ URL('storage/img/galeriaFotos/4.jpg') }}">
-                        </a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalImage5">
-                            <img class="w-100 mb-4 rounded" src="{{ URL('storage/img/galeriaFotos/5.jpg') }}">
-                        </a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalImage6">
-                            <img class="w-100 mb-4 rounded" src="{{ URL('storage/img/galeriaFotos/6.jpg') }}">
-                        </a>
-                    </div>
-                </div>
-
-                <!--Modal Gallery-->
-
-                <!--Image1-->
-                <div tabindex="-1" aria-labelledby="modalImage1" aria-hidden="true" class="modal fade" id="modalImage1">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <img src="{{ URL('storage/img/galeriaFotos/1.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div tabindex="-1" aria-labelledby="modalImage1" aria-hidden="true" class="modal fade" id="modalImage3">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <img src="{{ URL('storage/img/galeriaFotos/3.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-
-                <div tabindex="-1" aria-labelledby="modalImage1" aria-hidden="true" class="modal fade" id="modalImage4">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <img src="{{ URL('storage/img/galeriaFotos/4.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-
-                <div tabindex="-1" aria-labelledby="modalImage1" aria-hidden="true" class="modal fade" id="modalImage5">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <img src="{{ URL('storage/img/galeriaFotos/5.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-
-                <div tabindex="-1" aria-labelledby="modalImage1" aria-hidden="true" class="modal fade" id="modalImage6">
-                    <div class="modal-dialog modal-lg modal-dialog-centered">
-                        <div class="modal-content">
-                            <img src="{{ URL('storage/img/galeriaFotos/6.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <!--Bloque2-->
-        <div class="row p-3 bg-primary">
-
-            <div class="bg-danger">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                </form>
-
-            </div>
-
         </div>
     </div>
-</body>
+</div>
+<footer style="background-color: #81C92C;">
+        <div class="d-flex align-self-center justify-content-center mt-5">
+            <span><a href="#" class="text-dark"><i class="bi bi-envelope-fill"></i></a>{!! trans('messages.contact')!!}</span>
+            @if (config('locale.status') && count(config('locale.languages')) > 1)
+            <div class="mx-4">
+                @foreach (array_keys(config('locale.languages')) as $lang)
+                @if ($lang != App::getLocale())
+                <a href="{!! route('lang.swap', $lang) !!}" class="text-dark">
+                    {!! $lang !!}
+                </a>
+                @endif
+                @endforeach
+            </div>
+            @endif
+            <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#map"><i class="bi bi-geo-alt-fill"></i></a>
+        </div>
+</footer>
 
+<div class="modal fade" id="map" tabindex="-1" aria-labelledby="map" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+                    <iframe src="https://maps.google.com/maps?q=zubirimanteo&t=&z=18&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="friendModal" tabindex="-1" aria-labelledby="friendModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="rounded-circle" style="width: 15%;" src="https://bootdey.com/img/Content/avatar/avatar3.png"/>
+                    <h5 class="modal-title ms-3">User Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex justify-content-around" style="background-color: #EBF6FF;">
+                    <button class="btn text-white" style="background-color: #81C92C;">View profile</button>
+                    <button class="btn text-white" style="background-color: #F5851F;">Send Message</button>
+                </div>
+            </div>
+        </div>
+</div>     
+</body>
 </html>

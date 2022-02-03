@@ -27,7 +27,7 @@
               <label class="text-dark mt-3 ml-2">YOUSHAR3</label>
             </div>
             <div class="col-lg-4 d-flex align-items-center justify-content-center">
-              <a href="{{ route('profilePage')}}" class="btn text-white ml-2" style="background-color: #81C92C;"><i class="bi bi-person-circle"></i> {!! trans('messages.Profile') !!}</a>
+              <button class="btn  text-white ml-2" style="background-color: #81C92C;"><i class="bi bi-person-circle"></i> {!! trans('messages.Profile') !!}</button>
             </div>
             <div class="col-lg-4 d-flex align-items-center justify-content-center">
               <div class="dropdown mt-1">
@@ -60,9 +60,9 @@
               <div class="dropdown ml-4 mt-2">
                 <button type="button" class="btn dropdown-toggle text-white align-items-center justify-content-center ml-lg-2" data-bs-toggle="dropdown" style="background-color: #81C92C;"><i class="bi bi-gear-wide"></i> {!! trans('messages.Settings') !!}</button>
                 <ul class="dropdown-menu bg-white">
-                  <li><a href="/userDataCli/{{ $user->id }}" class="dropdown-item">{!! trans('messages.Manage') !!}</a></li>
+                  <li><a href="" class="dropdown-item">{!! trans('messages.Manage') !!}</a></li>
                   <div class="dropdown-divider"></div>
-                  <li><a class="dropdown-item" href="{{ route('logout')}}">{!! trans('messages.Logout') !!}</a></li>
+                  <li><a class="dropdown-item" href="">{!! trans('messages.Logout') !!}</a></li>
                 </ul>
               </div>
             </div>
@@ -74,7 +74,7 @@
 
 
   <div class="container-fluid" style="width: 100%; margin-top: 40px;">
-    <h2 class="text-center text-white mb-2">{!! trans('messages.check') !!}, {{ $user->user_name }}</h2>
+    <h2 class="text-center text-white  mb-2">{!! trans('messages.check') !!}, Dummy User Name</h2>
     <div class="row d-flex justify-content-center">
       <div class="col-lg-6 col-md-7 col-sm-5  card" style="background-color: #BBE4F8;">
         <div class="card-header">
@@ -106,10 +106,7 @@
         <div class="card-body conatiner">
           <h5>My first Perfect</h5> <br> <span> <a href="#" style="text-decoration: none;">FightingGames</a><br></span>
           <div class="embed-responsive embed-responsive-16by9 mt-2">
-            <video width="320" height="240" controls>
-              <source src="{{ URL('storage/fighting.mp4')}}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+            <iframe style="width: 90%; height: 90%;" src="{{ URL('storage/fighting.mp4')}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <p>First perfect with grappler, feels good.</p>
         </div>
@@ -144,6 +141,22 @@
       </div>
     </div>
   </div>
+
+  <footer class="pie mt-2" style="background-color: #81C92C;">
+    <div class="row text-center">
+      <a href="https://twitter.com/?lang=ES"><i class="bi bi-twitter">Twitter</i></a>
+    </div>
+    <div class="row text-center">
+      <a href="https://www.facebook.com/"><i class="bi bi-facebook">Facebook</i></a>
+    </div>
+    <div class="row text-center">
+      <a href="https://www.reddit.com/"><i class="bi bi-reddit">Reddit</i></a>
+    </div>
+    <div class="row text-center">
+      <span><i class="bi bi-envelope-fill"></i>Contact mail: youshar3@support.com</span>
+    </div>
+  </footer>
+
 
 </body>
 
