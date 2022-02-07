@@ -14,7 +14,7 @@ class Support extends Model
         'support_message',
     ];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

@@ -14,12 +14,12 @@ class Friend extends Model
         'friend_id'
     ];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function profile()
+    public function profiles()
     {
         return $this->belongsTo(Profile::class, 'user_id');
     }

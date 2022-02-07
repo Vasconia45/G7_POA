@@ -6,7 +6,7 @@ return [
     'Lenguage' => 'Idioma',
     'Spanish' => 'Español',
     'English' => 'Ingles',
-    'Search' => 'Buscar Amigos',
+    'Search' => 'Buscar',
     'Settings' => 'Ajustes',
     'Manage' => 'Ajustes de perfil',
     'Notify' => 'Notificaciones',
@@ -44,7 +44,11 @@ return [
     'callOfAction1' => 'Si quieres un ejemplo, puedes probar la pagina de',
     'callOfAction2' => ' de la aplicacion pinchando en las imagenes',
     'wall' => 'Muro',
-    'or' => 'o'
+    'or' => 'o',
+    'photos' => 'FOTOS',
+    'videos' => 'VIDEOS',
+    'posts' => 'PUBLICACIONES',
+    'friends' => 'LISTA DE AMIGOS'
 
 
 ];

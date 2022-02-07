@@ -16,7 +16,7 @@ class Media_Comment extends Model
         'media_comment_date'
     ];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

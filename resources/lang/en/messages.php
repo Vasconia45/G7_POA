@@ -7,7 +7,7 @@ return [
     'Lenguage' => 'Lenguage',
     'Spanish' => 'Spanish',
     'English' => 'English',
-    'Search' => 'Search for friends',
+    'Search' => 'Search',
     'Settings' => 'Settings',
     'Manage' => 'Manage profile',
     'Notify' => 'Notifications',
@@ -45,7 +45,11 @@ return [
     'callOfAction1' => 'If you want an example, check our',
     'callOfAction2' => ' pages by clicking on the images below',
     'wall' => 'Wall',
-    'or' => 'or'
+    'or' => 'or',
+    'photos' => 'PHOTOS',
+    'videos' => 'VIDEOS',
+    'posts' => 'POSTS',
+    'friends' => 'FRIEND LIST'
     
 
 ];

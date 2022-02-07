@@ -118,5 +118,11 @@ Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.s
 
 
 
+//5.This part is after the user login
+
+//List add user.
+Route::get('/listUser', [UserController::class, 'listUsers'])->name('listUsers');
+
+
 /*Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMediacommentTable extends Migration
+class CreateMediacommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateMediacommentTable extends Migration
      */
     public function up()
     {
-        Schema::create('mediacomment', function (Blueprint $table) {
+        Schema::create('mediacomments', function (Blueprint $table) {
             $table->increments('id', true);
             $table->integer('media_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->foreign('media_id')->references('id')->on('media')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('media_id')->references('id')->on('medias')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('media_comment');
             $table->datetime('media_comment_date');
@@ -32,6 +32,6 @@ class CreateMediacommentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mediacomment');
+        Schema::dropIfExists('mediacomments');
     }
 }

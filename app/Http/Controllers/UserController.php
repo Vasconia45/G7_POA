@@ -49,8 +49,11 @@ class UserController extends Controller
     }
 
     public function back(Request $request){
-        dd($request);
         return redirect()->back();
+    }
+
+    public function listUsers(){
+        $user = User::Where('user_type', 'user')->first();
     }
     
 }

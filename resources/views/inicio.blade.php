@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="{{ asset('css/estiloLandingPage.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ asset('css/inicio.css') }}" rel="stylesheet" type="text/css">
 </head>
 
 <body style="background-image: URL('storage/paisaje.jpg'); background-color: #EBF6FF; background-size: cover; height: 70em; background-attachment: fixed;">
@@ -19,55 +19,111 @@
     </button>
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <div class="row col-12 d-flex flex-lg-row flex-md-row flex-column">
-        <div class="col-lg-7 col-md-6 col-12 d-flex">
-          <div class="row">
-            <div class="col-lg-4 d-flex">
-              <img src="{{ URL('storage/img/logo.png')}}" class="rounded-circle" style="width: 60px;">
+      <div class=" col-12 d-flex flex-lg-row flex-md-row flex-column">
+
+        <div class="col-lg-4 col-md-6 col-12 d-flex align-items-center">
+          <div class="col-lg-2">
+            <div class="d-flex">
+              <button type="button" class="btn text-white align-items-center justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#addFriend" aria-controls="addFriend" style="background-color: #81C92C;"><i class="bi bi-person-plus-fill"></i></button>
+
+              <div class="offcanvas offcanvas-start" tabindex="-1" id="addFriend" aria-labelledby="offcanvasAddFriend">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasAddFriend">Users</h5>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <!--@if (is_countable( $users ) && count( $users ) > 0)
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <form method="POST" id="usersForm">
+                {{ csrf_field() }}
+                    @foreach($users as $user)
+                        <tr class="align-middle dbUsers">
+                            <th>{{$user->user_name}}</th>
+                            <th>{{$user->email}}</th>
+                            <th><a href="/admin/{{ $user->id }}">Edit</a></th>
+                            <th><button formaction="{{ route('deleteUser', $user->id)}}" type="submit" class="btn btn-default"><i class="bi bi-trash-fill text-dark"></i></button></th>
+                        </tr>
+                    @endforeach
+                    </form>
+                </tbody>
+            </table>
+            @else
+            <p>There are no users registered.</p>
+            @endif-->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-10 d-flex align-items-center">
+            <div class="col-lg-2">
+              <img src="{{ URL('storage/img/logo.png')}}" class="rounded-circle" id="fotoLogoIni">
+            </div>
+            <div class="col-lg-10">
               <label class="text-dark mt-3 ml-2">YOUSHAR3</label>
             </div>
-            <div class="col-lg-4 d-flex align-items-center justify-content-center">
-              <a href="{{ route('profilePage')}}" class="btn text-white ml-2" style="background-color: #81C92C;"><i class="bi bi-person-circle"></i> {!! trans('messages.Profile') !!}</a>
-            </div>
-            <div class="col-lg-4 d-flex align-items-center justify-content-center">
-              <div class="dropdown mt-1">
-                <button type="button" class="btn dropdown-toggle text-white align-items-center justify-content-center ml-lg-2 mb-1" data-bs-toggle="dropdown" style="background-color: #81C92C;">{!! trans('messages.Lenguage') !!}</button>
-                <ul class="dropdown-menu bg-white">
-                  @if (config('locale.status') && count(config('locale.languages')) > 1)
-                  <div class="mx-4">
-                    @foreach (array_keys(config('locale.languages')) as $lang)
-                    @if ($lang != App::getLocale())
-                    <a href="{!! route('lang.swap', $lang) !!}" class="text-dark">
-                      {!! $lang !!}
-                    </a>
-                    @endif
-                    @endforeach
-                  </div>
-                  @endif
-                </ul>
-              </div>
-            </div>
-
           </div>
         </div>
-        <div class="d-flex col-lg-5 col-md-6 col-12">
-          <div class="row">
-            <div class="col-6 d-flex ">
-              <div class="form-floating">
-                <input type="search" class="form-control rounded-pill" id="friend" placeholder="Search for Friends" style="width: 200px;">
-                <label for="friend"><i class="bi bi-search"></i> {!! trans('messages.Search') !!}</label>
+
+
+        <div class="d-flex col-lg-8 col-md-6 col-12">
+
+          <div class="col-lg-5">
+            <div class="form-floating">
+              <input type="search" class="form-control form-control-lg rounded-pill" id="friend" placeholder="Search">
+              <label for="friend"><i class="bi bi-search"></i> {!! trans('messages.Search') !!}</label>
+            </div>
+          </div>
+
+
+          <div class="d-flex col-lg-7 justify-content-end">
+            <div class="d-flex col-lg-6">
+
+              <div class="col-lg-4 d-flex align-items-center">
+                <div class="dropdown">
+                  <button type="button" class="btn text-white align-items-center justify-content-center" data-bs-toggle="dropdown" style="background-color: #81C92C;"><i class="bi bi-translate"></i></button>
+                  <ul class="dropdown-menu bg-white">
+                    @if (config('locale.status') && count(config('locale.languages')) > 1)
+                    <div class="mx-4">
+                      @foreach (array_keys(config('locale.languages')) as $lang)
+                      @if ($lang != App::getLocale())
+                      <a href="{!! route('lang.swap', $lang) !!}" class="text-dark">
+                        {!! $lang !!}
+                      </a>
+                      @endif
+                      @endforeach
+                    </div>
+                    @endif
+                  </ul>
+                </div>
               </div>
-              <div class="dropdown ml-4 mt-2">
-                <button type="button" class="btn dropdown-toggle text-white align-items-center justify-content-center ml-lg-2" data-bs-toggle="dropdown" style="background-color: #81C92C;"><i class="bi bi-gear-wide"></i> {!! trans('messages.Settings') !!}</button>
+
+              <div class="col-lg-4 d-flex align-items-center">
+                <a href="{{ route('profilePage')}}" class="btn text-white" style="background-color: #81C92C;"><i class="bi bi-person-circle"></i></a>
+              </div>
+
+
+              <div class="dropdown col-lg-4 d-flex align-items-center">
+                <button type="button" class="btn text-white align-items-center justify-content-center" data-bs-toggle="dropdown" style="background-color: #81C92C;"><i class="bi bi-gear-wide"></i></button>
                 <ul class="dropdown-menu bg-white">
                   <li><a href="/userDataCli/{{ $user->id }}" class="dropdown-item">{!! trans('messages.Manage') !!}</a></li>
                   <div class="dropdown-divider"></div>
                   <li><a class="dropdown-item" href="{{ route('logout')}}">{!! trans('messages.Logout') !!}</a></li>
                 </ul>
               </div>
+
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </nav>
@@ -100,7 +156,7 @@
     <div class="row mt-2 d-flex justify-content-center">
       <div class="col-lg-6 col-md-7 col-sm-5 card" style="background-color: #BBE4F8;">
         <div class="card-header">
-          <img src="{{ URL('storage/laura.jfif')}}" class="cardimg rounded-circle" style="width: 100px;">
+          <img src="{{ URL('storage/pedro.jfif')}}" class="cardimg rounded-circle" style="width: 100px;">
           <span>Laura {!! trans('messages.upload') !!}</span>
         </div>
         <div class="card-body conatiner">

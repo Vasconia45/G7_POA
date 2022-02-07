@@ -22,6 +22,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/showHide.js') }}"></script>
     <script src="{{ asset('js/weather.js') }}"></script>
+    <script src="{{ asset('js/map.js') }}"></script>
 </head>
 
 <body>
@@ -63,7 +64,7 @@
         </div>
         <div class="d-flex col-lg-4 col-2 mt-2 justify-content-center">
             <div class="col-lg-1 col-4">
-                <span><a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#map"><i class="bi bi-geo-alt-fill"></i></a></span>
+                <span><a href="#" class="text-dark" data-bs-toggle="modal" data-bs-target="#mapModal"><i class="bi bi-geo-alt-fill"></i></a></span>
             </div>
             <div class="col-lg-1 col-4">
                 <span><a href="#" id="weatherButton" class="text-dark" data-bs-toggle="modal" data-bs-target="#weather"><i class="bi bi-brightness-alt-high-fill"></i></a></span>
@@ -214,7 +215,7 @@
         </div>
     </footer>
 
-    <div class="modal fade" id="weather" tabindex="-1" aria-labelledby="map" aria-hidden="true">
+    <div class="modal fade" id="weather" tabindex="-1" aria-labelledby="weather" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -265,20 +266,22 @@
         </div>
     </div>
 
-    <div class="modal fade" id="map" tabindex="-1" aria-labelledby="map" aria-hidden="true">
+    <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="map" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="map-container-google-1" class="z-depth-1-half map-container border" style="height: 500px">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.408873009227!2d-1.9720742342847335!3d43.326632481503786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51a54183b87fed%3A0x6b3f34b4f0c14472!2sInstituto%20Zubiri%20Manteo!5e0!3m2!1ses!2ses!4v1643123152436!5m2!1ses!2ses" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <div id="map">
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<!--Map-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT8NYM6pDv2VNAW417BrQenXNLWuNGe08&callback=initMap&libraries=&v=weekly" async></script>
 
 </html>

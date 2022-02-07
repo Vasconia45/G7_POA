@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -50,13 +51,16 @@ class UserRegisterController extends Controller
                 'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
                 'birth_date' => 'required',
             ]);
-            User::create([
+            $user = User::create([
                 'user_name' => $request->user_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'birth_date' => $request->birth_date,
                 'user_type' => 'user',
                 'verified' => false
+            ]);
+            Profile::create([
+                'user_id' => $user->id
             ]);
             return redirect()->route('landingPage')
                 ->with('success', trans('messages.sendMail'));

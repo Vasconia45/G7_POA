@@ -15,7 +15,7 @@ class Post extends Model
         'post_date'
     ];
 
-    public function profile()
+    public function profiles()
     {
         return $this->belongsTo(Profile::class, 'user_id');
     }

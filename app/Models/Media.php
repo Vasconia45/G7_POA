@@ -19,12 +19,12 @@ class Media extends Model
         'media_date'
     ];
 
-    public function profile()
+    public function profiles()
     {
         return $this->belongsTo(Profile::class, 'user_id');
     }
 
-    public function category()
+    public function categorys()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }

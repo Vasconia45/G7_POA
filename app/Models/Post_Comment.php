@@ -16,7 +16,7 @@ class Post_Comment extends Model
         'post_comment_date'
     ];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
