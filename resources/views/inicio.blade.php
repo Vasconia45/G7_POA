@@ -12,6 +12,15 @@
 </head>
 
 <body style="background-image: URL('storage/paisaje.jpg'); background-color: #EBF6FF; background-size: cover; height: 70em; background-attachment: fixed;">
+
+
+<div>
+        @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+        @endif
+    </div>
   <nav class="navbar navbar-light navbar-expand-sm  d-flex flex-row" style="background-color:#BBE4F8;">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -32,33 +41,27 @@
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                  <!--@if (is_countable( $users ) && count( $users ) > 0)
-            <table class='table'>
-                <thead>
+                  @if ($profiles != null && isset($profiles) && is_countable( $profiles ) && count( $profiles ) > 0)
+                  <table class='table'>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th></th>
-                        <th></th>
+                      <th>Name</th>
+                      <th></th>
                     </tr>
-                </thead>
-                <tbody>
-                <form method="POST" id="usersForm">
-                {{ csrf_field() }}
-                    @foreach($users as $user)
-                        <tr class="align-middle dbUsers">
-                            <th>{{$user->user_name}}</th>
-                            <th>{{$user->email}}</th>
-                            <th><a href="/admin/{{ $user->id }}">Edit</a></th>
-                            <th><button formaction="{{ route('deleteUser', $user->id)}}" type="submit" class="btn btn-default"><i class="bi bi-trash-fill text-dark"></i></button></th>
+                    <tbody>
+                      <form method="POST" id="friendsForm">
+                        {{ csrf_field() }}
+                        @foreach($profiles as $users)
+                        <tr class="align-middle">
+                          <th>{{$users->user_name}}</th>
+                          <th><button type="submit" formaction="{{ route('addFriend', $users->id) }}" class="btn btn-danger"><i class="bi bi-plus-lg"></i></button></th>
                         </tr>
-                    @endforeach
-                    </form>
-                </tbody>
-            </table>
-            @else
-            <p>There are no users registered.</p>
-            @endif-->
+                        @endforeach
+                      </form>
+                    </tbody>
+                  </table>
+                  @else
+                  <p>There are no users available.</p>
+                  @endif
                 </div>
               </div>
             </div>

@@ -123,6 +123,9 @@ Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.s
 //List add user.
 Route::get('/listUser', [UserController::class, 'listUsers'])->name('listUsers');
 
+//Add friends.
+Route::post('/addFriend/{id}', [UserController::class, 'addFriend'])->name('addFriend');
+
 
 /*Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/

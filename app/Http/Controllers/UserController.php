@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Profile;
+use App\Models\Friend;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -11,7 +14,8 @@ class UserController extends Controller
     public function login(Request $request){
         $user = User::Where('id', $request->user)->first();
         if($user->verified == true){
-            return view('inicio', compact('user'));
+            $profiles = $this->listFriends($request);
+            return view('inicio', compact('user', 'profiles'));
         }
         else{
             return back()->with(['error' => 'You have to confirm your account, check your email.']);
@@ -49,11 +53,53 @@ class UserController extends Controller
     }
 
     public function back(Request $request){
-        return redirect()->back();
+        $user = User::find($request->input('idUser'));
+        return view('inicio', compact('user'));
     }
 
     public function listUsers(){
         $user = User::Where('user_type', 'user')->first();
+    }
+
+    public function listFriends(Request $request){
+        $profiles = array();
+        $friends = Profile::all();
+        for($i = 0; $i < count($friends); $i++){
+            $checkfriend1 = Friend::Where('requester_id', Auth::user()->id)
+                ->where('friend_id', $friends[$i]->id)
+                ->first();
+
+            $checkfriend2 = Friend::Where('requester_id', $friends[$i]->id)
+                ->where('friend_id', Auth::user()->id)
+                ->first();
+            
+            /*if($isFriend == false){
+                return "false";
+            }
+            else{
+                return "jik";
+            }*/
+            $users = User::Where('id', $friends[$i]->user_id)->first('id');
+            if($users->id != Auth::user()->id && $checkfriend1 == null && $checkfriend2 == null){
+                $profiles[$i] = User::Where('id', $friends[$i]->user_id)->first();
+            }
+        }
+        return $profiles;
+    }
+
+    public function refreshFriends(){
+
+    }
+
+
+    public function addFriend($id){
+        $user = Auth::user()->id;
+        Friend::create([
+            'requester_id' => $user,
+            'friend_id' => $id
+        ]);
+
+        return redirect()->back();
     }
     
 }

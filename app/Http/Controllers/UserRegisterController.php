@@ -51,16 +51,13 @@ class UserRegisterController extends Controller
                 'password' => 'required|min:8|max:16|regex:/[^a-zA-Z0-9]/',
                 'birth_date' => 'required',
             ]);
-            $user = User::create([
+            User::create([
                 'user_name' => $request->user_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'birth_date' => $request->birth_date,
                 'user_type' => 'user',
                 'verified' => false
-            ]);
-            Profile::create([
-                'user_id' => $user->id
             ]);
             return redirect()->route('landingPage')
                 ->with('success', trans('messages.sendMail'));
@@ -83,6 +80,10 @@ class UserRegisterController extends Controller
 
     public function confirmation(Request $request)
     {
+        $user_profile = User::Where('user_name', $request->user_name)->first()->id;
+        Profile::create([
+            'user_id' => $user_profile
+        ]);
         $user = User::Where('user_name', $request->user_name)->first();
         $user->verified = true;
         $user->save();

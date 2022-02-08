@@ -17,7 +17,7 @@ class CreateMediasTable extends Migration
             $table->increments('id', true);
             $table->integer('category_id')->unsigned();
             $table->integer('profile_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categorys')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('profile_id')->references('id')->on('profiles')->onUpdate('cascade')->onDelete('cascade');
             $table->string('title');
             $table->string('description')->nullable();

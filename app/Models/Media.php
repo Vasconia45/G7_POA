@@ -11,7 +11,7 @@ class Media extends Model
 
     protected $fillable = [
         'category_id',
-        'user_id',
+        'profile_id',
         'description',
         'media_type',
         'title',
@@ -21,7 +21,7 @@ class Media extends Model
 
     public function profiles()
     {
-        return $this->belongsTo(Profile::class, 'user_id');
+        return $this->belongsTo(Profile::class, 'profile_id');
     }
 
     public function categorys()

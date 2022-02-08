@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany(Mediacomment::class);
     }
 
+    public function profiles()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

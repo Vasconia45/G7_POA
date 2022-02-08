@@ -34,4 +34,9 @@ class Profile extends Model
     {
         return $this->hasMany(Media::class);
     }
+
+    public function users()
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }
