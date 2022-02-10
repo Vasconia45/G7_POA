@@ -17,7 +17,7 @@ class CreateMediacommentsTable extends Migration
             $table->increments('id', true);
             $table->integer('media_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->foreign('media_id')->references('id')->on('medias')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('media_id')->references('id')->on('media')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('media_comment');
             $table->datetime('media_comment_date');

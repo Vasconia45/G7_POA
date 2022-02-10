@@ -7,6 +7,8 @@ use App\Http\Controllers\UserRegisterController;
 use App\Http\Controllers\UserSessionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\mediaUpload;
+use App\Http\Controllers\ProfileEdit;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +27,22 @@ Route::get('/', function () {
 })->name('landingPage');
 
 //This is the profilePage route.
-Route::get('/profile', function(){
-    return view('profile');
-})->name('profilePage');
+Route::post('/profile', [UserController::class, 'profilePage'])->name('profilePage');
+
+Route::get('/profile', [UserController::class, 'profilePage'])->name('profile');
 
 Route::get('/wall', function(){
     return view('wall');
 })->name('wall');
+
+Route::post('/ProfileEdit', function () {
+    return view('ProfileEdit');
+})->name('ProfileEdit');
+
+Route::post('/UpdateUserProfile', [ProfileEdit::class, 'UpdateUserProfile'])->name('UpdateUserProfile');
+
+Route::post('/mediaUploading', [mediaUpload::class, 'uploadingMedia'])->name('mediaUploading');
+Route::post('/mediaUpload', [mediaUpload::class, 'uploadMedia'])->name('mediaUploaded');
 
 //1.Login routes.
 
@@ -81,7 +92,7 @@ Route::post('/updateUserCli', [UserController::class, 'updatecli'])->name('updat
 //call to the deletecli function of the UserSessionController controller with the name deleteUserCli
 Route::post('/deleteUserCli', [UserController::class, 'deletecli'])->name('deleteUserCli');
 //returns back to the view.
-Route::post('/back', [UserController::class, 'back'])->name('backInicio');
+Route::post('/inicio', [UserController::class, 'back'])->name('backInicio');
 
 
 

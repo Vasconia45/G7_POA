@@ -54,9 +54,21 @@ class UserController extends Controller
     }
 
     public function back(Request $request){
-        $user = User::find($request->input('idUser'));
+        $user = Auth::user();
         $profiles = $this->listFriends();
-        return view('inicio', compact('user','profiles'));
+        dd($profiles);
+        return redirect('/inicio')->with('user', 'profiles');
+    }
+
+    public function profilePage(Request $request){
+        $user = Auth::user()->id;
+        $profile = Profile::where('user_id', $user)->first('id');
+        $profpic = $profile->profile_picture;
+        //dd($request->input('idUser'));
+        //dd($user);
+        //dd(Auth::user()->user_name);
+        //dd($profpic);
+        return view('profile', compact('profile'));    
     }
 
     public function listFriends(){
