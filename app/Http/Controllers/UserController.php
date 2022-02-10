@@ -14,7 +14,7 @@ class UserController extends Controller
     public function login(Request $request){
         $user = User::Where('id', $request->user)->first();
         if($user->verified == true){
-            $profiles = $this->listFriends($request);
+            $profiles = $this->listFriends();
             return view('inicio', compact('user', 'profiles'));
         }
         else{
@@ -52,54 +52,46 @@ class UserController extends Controller
         
     }
 
-    public function back(Request $request){
+    public function back(Request $request, $profiles){
         $user = User::find($request->input('idUser'));
+        dd($profiles);
         return view('inicio', compact('user'));
     }
 
-    public function listUsers(){
-        $user = User::Where('user_type', 'user')->first();
-    }
-
-    public function listFriends(Request $request){
+    public function listFriends(){
         $profiles = array();
         $friends = Profile::all();
+        $userProfileid = Profile::where('user_id', Auth::user()->id)->first();
         for($i = 0; $i < count($friends); $i++){
-            $checkfriend1 = Friend::Where('requester_id', Auth::user()->id)
+            $checkfriend1 = Friend::Where('requester_id', $userProfileid->id)
                 ->where('friend_id', $friends[$i]->id)
                 ->first();
-
             $checkfriend2 = Friend::Where('requester_id', $friends[$i]->id)
-                ->where('friend_id', Auth::user()->id)
+                ->where('friend_id', $userProfileid->id)
                 ->first();
-            
-            /*if($isFriend == false){
-                return "false";
-            }
-            else{
-                return "jik";
-            }*/
-            $users = User::Where('id', $friends[$i]->user_id)->first('id');
-            if($users->id != Auth::user()->id && $checkfriend1 == null && $checkfriend2 == null){
+            if($userProfileid->id != $friends[$i]->id && $checkfriend1 == null && $checkfriend2 == null){
                 $profiles[$i] = User::Where('id', $friends[$i]->user_id)->first();
             }
         }
         return $profiles;
     }
 
-    public function refreshFriends(){
-
-    }
-
+    /*public function listUsers(){
+        $user = User::Where('user_type', 'user')->first();
+    }*/
 
     public function addFriend($id){
-        $user = Auth::user()->id;
+        $user = Profile::where('user_id', Auth::user()->id)->first();
+        $friend = Profile::where('user_id', $id)->first();
+        $profiles = $this->listFriends();
+        //$back = $this->listFriends('users');
         Friend::create([
-            'requester_id' => $user,
-            'friend_id' => $id
+            'requester_id' => $user->id,
+            'friend_id' => $friend->id
         ]);
 
-        return redirect()->back();
+        return redirect()->back()
+            ->with(compact('profiles'));
     }
     
 }

@@ -21,11 +21,11 @@ class Media extends Model
 
     public function profiles()
     {
-        return $this->belongsTo(Profile::class, 'profile_id');
+        return $this->belongsTo(Profile::class, 'id');
     }
 
     public function categorys()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'id');
     }
 }

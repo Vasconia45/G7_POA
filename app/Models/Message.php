@@ -17,11 +17,11 @@ class Message extends Model
 
     public function users()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'id');
     }
 
     public function profiles()
     {
-        return $this->belongsTo(Profile::class, 'user_id');
+        return $this->belongsTo(Profile::class, 'id');
     }
 }
