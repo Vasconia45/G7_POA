@@ -65,7 +65,7 @@
                     <!-- Button to update the own user data, it will call the updateUserCli function of the UserSessionController controller -->
                     <div class="form-floating row align-items-center">
                         <div class="col-6">
-                            <a href="{{ route('backInicio')}}" class="btn btn-default btn-block mt-4"><i class="bi bi-arrow-return-left"></i></a>
+                            <button type="submit" formaction="{{ route('backInicio')}}" class="btn btn-default btn-block mt-4"><i class="bi bi-arrow-return-left"></i></button>
                         </div>
                         <div class="col-3 d-flex justify-content-end">
                             <button type="submit" formaction="{{ route('updateUserCli')}}" class="btn btn-default btn-block mt-4" id="updateBtn">Update</button>

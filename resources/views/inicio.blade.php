@@ -43,10 +43,6 @@
                 <div class="offcanvas-body">
                   @if ($profiles != null && isset($profiles) && is_countable( $profiles ) && count( $profiles ) > 0)
                   <table class='table'>
-                    <tr>
-                      <th>Name</th>
-                      <th></th>
-                    </tr>
                     <tbody>
                       <form method="POST" id="friendsForm">
                         {{ csrf_field() }}

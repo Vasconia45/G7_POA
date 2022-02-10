@@ -80,7 +80,8 @@ Route::get('/userDataCli/{user}', [UserController::class, 'editcli'])->name('edi
 Route::post('/updateUserCli', [UserController::class, 'updatecli'])->name('updateUserCli');
 //call to the deletecli function of the UserSessionController controller with the name deleteUserCli
 Route::post('/deleteUserCli', [UserController::class, 'deletecli'])->name('deleteUserCli');
-Route::get('/back', [UserController::class, 'back'])->name('backInicio');
+//returns back to the view.
+Route::post('/back', [UserController::class, 'back'])->name('backInicio');
 
 
 
@@ -119,9 +120,6 @@ Route::get('lang/{lang}', [LanguageController::class, '__invoke'])->name('lang.s
 
 
 //5.This part is after the user login
-
-//List add user.
-//Route::get('/listUser', [UserController::class, 'listUsers'])->name('listUsers');
 
 //Add friends.
 Route::post('/addFriend/{id}', [UserController::class, 'addFriend'])->name('addFriend');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
 use App\Models\Friend;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -52,10 +53,10 @@ class UserController extends Controller
         
     }
 
-    public function back(Request $request, $profiles){
+    public function back(Request $request){
         $user = User::find($request->input('idUser'));
-        dd($profiles);
-        return view('inicio', compact('user'));
+        $profiles = $this->listFriends();
+        return view('inicio', compact('user','profiles'));
     }
 
     public function listFriends(){
@@ -76,22 +77,30 @@ class UserController extends Controller
         return $profiles;
     }
 
-    /*public function listUsers(){
-        $user = User::Where('user_type', 'user')->first();
-    }*/
-
     public function addFriend($id){
         $user = Profile::where('user_id', Auth::user()->id)->first();
         $friend = Profile::where('user_id', $id)->first();
         $profiles = $this->listFriends();
-        //$back = $this->listFriends('users');
         Friend::create([
             'requester_id' => $user->id,
-            'friend_id' => $friend->id
+            'friend_id' => $friend->id,
+            'isFriend' => false
         ]);
-
+        $this->sendMessage($friend, $user);
         return redirect()->back()
             ->with(compact('profiles'));
+    }
+
+    public function sendMessage($friend, $user){
+        $transmitter = $user->id;
+        $receiver = $friend->id;
+        /*$message = Profile::find('id', $transmitter)->first();
+        dd($message);*/
+        Message::create([
+            'transmitter_id' => $transmitter,
+            'receiver_id' => $receiver,
+            'message' => " wants to be your friend."
+        ]);
     }
     
 }
